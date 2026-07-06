@@ -1,0 +1,6 @@
+# Tool & IDE configurations
+.claude/
+.qoder/
+
+# OS files
+.DS_Store
