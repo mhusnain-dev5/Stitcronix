@@ -9,10 +9,9 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="gallery.css" />
 
   <!-- EmailJS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -24,29 +23,35 @@
 </head>
 <body>
 
+<!-- Custom Cursor elements -->
+<div class="custom-cursor" id="customCursor"></div>
+<div class="custom-cursor-dot" id="customCursorDot"></div>
+
 <!-- ================================================================
      NAVBAR
 ================================================================ -->
 <nav id="navbar">
-  <a href="#hero" class="nav-logo">
-    <img src="logo.jpeg" alt="Stitchronix Apparel" />
-  </a>
+  <div class="container nav-container">
+    <a href="#hero" class="nav-logo">
+      <img src="logo.jpeg" alt="Stitchronix Apparel" />
+    </a>
 
-  <div class="nav-links">
-    <a href="#hero">Home</a>
-    <a href="#about">About</a>
-    <a href="#products">Products</a>
-    <a href="#services">Services</a>
-    <a href="#process">Process</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#contact">Contact</a>
+    <div class="nav-links">
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <a href="#contact" class="btn btn-primary nav-cta">Request a Quote</a>
+
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-
-  <a href="#contact" class="btn btn-primary nav-cta">Request a Quote</a>
-
-  <button class="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
 
 <!-- Mobile menu -->
@@ -70,59 +75,61 @@
   <div class="hero-grid"></div>
 
   <div class="container">
-    <div class="hero-content">
-      <div class="tag">Pakistan's Premier Apparel Manufacturer</div>
-      <h1 class="hero-title">
-        Crafting Apparel<br>
-        <span class="line2">Built for Global Markets</span>
-      </h1>
-      <p class="hero-tagline">Precision in Every Stitch</p>
-      <p class="hero-desc">
-        From startups to established brands we deliver premium custom garments
-        with OEM, ODM private label manufacturing. Quality that competes
-        on the world stage.
-      </p>
-      <div class="hero-btns">
-        <a href="#contact" class="btn btn-primary">
-          Request a Quote &nbsp;&rarr;
-        </a>
-        <a href="#about" class="btn btn-outline">
-          Learn More
-        </a>
+    <div class="hero-wrapper">
+      <div class="hero-content">
+        <div class="tag">Pakistan's Premier Apparel Manufacturer</div>
+        <h1 class="hero-title">
+          Crafting Apparel<br>
+          <span class="line2">Built for Global Markets</span>
+        </h1>
+        <p class="hero-tagline">Precision in Every Stitch</p>
+        <p class="hero-desc">
+          From startups to established brands we deliver premium custom garments
+          with OEM, ODM private label manufacturing. Quality that competes
+          on the world stage.
+        </p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn btn-primary">
+            Request a Quote &nbsp;&rarr;
+          </a>
+          <a href="#about" class="btn btn-outline">
+            Learn More
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num" data-target="500" data-suffix="+">0+</div>
+            <div class="hero-stat-label">Happy Clients</div>
+          </div>
+          <div>
+            <div class="hero-stat-num" data-target="10" data-suffix="+">0+</div>
+            <div class="hero-stat-label">Years Experience</div>
+          </div>
+          <div>
+            <div class="hero-stat-num" data-target="20" data-suffix="+">0+</div>
+            <div class="hero-stat-label">Countries Served</div>
+          </div>
+          <div>
+            <div class="hero-stat-num" data-target="1" data-suffix="M+">0M+</div>
+            <div class="hero-stat-label">Pieces Produced</div>
+          </div>
+        </div>
       </div>
 
-      <div class="hero-stats">
-        <div>
-          <div class="hero-stat-num" data-target="500" data-suffix="+">0+</div>
-          <div class="hero-stat-label">Happy Clients</div>
-        </div>
-        <div>
-          <div class="hero-stat-num" data-target="10" data-suffix="+">0+</div>
-          <div class="hero-stat-label">Years Experience</div>
-        </div>
-        <div>
-          <div class="hero-stat-num" data-target="20" data-suffix="+">0+</div>
-          <div class="hero-stat-label">Countries Served</div>
-        </div>
-        <div>
-          <div class="hero-stat-num" data-target="1" data-suffix="M+">0M+</div>
-          <div class="hero-stat-label">Pieces Produced</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Desktop hero visual -->
-  <div class="hero-visual">
-    <div class="hero-logo-wrap">
-      <div class="hero-logo-ring"></div>
-      <div class="hero-logo-ring"></div>
-      <img src="logo.jpeg" alt="Stitchronix Logo" class="hero-logo-img" />
-      <div class="hero-badge">
-        <span class="hero-badge-icon">&#127942;</span>
-        <div class="hero-badge-text">
-          International<br>
-          <span>Export Certified</span>
+      <!-- Desktop hero visual -->
+      <div class="hero-visual">
+        <div class="hero-logo-wrap">
+          <div class="hero-logo-ring"></div>
+          <div class="hero-logo-ring"></div>
+          <img src="logo.jpeg" alt="Stitchronix Logo" class="hero-logo-img" />
+          <div class="hero-badge">
+            <span class="hero-badge-icon">&#127942;</span>
+            <div class="hero-badge-text">
+              International<br>
+              <span>Export Certified</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -241,14 +248,14 @@
           <span class="pill">Timely Delivery</span>
         </div>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:0.5rem;">
-          <div style="background:rgba(255,107,0,0.07);border:1px solid rgba(255,107,0,0.25);border-radius:12px;padding:1.25rem;">
-            <div style="font-family:var(--font);font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:0.5rem;">Our Mission</div>
-            <p style="font-size:0.85rem;line-height:1.6;color:var(--gray2);">To provide premium-quality apparel manufacturing that helps brands grow in global markets.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem;">
+          <div style="background:rgba(212, 175, 55, 0.03);border:1px solid var(--border-gold);border-radius:var(--radius);padding:1.5rem;">
+            <div style="font-family:var(--font);font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Our Mission</div>
+            <p style="font-size:0.9rem;line-height:1.6;color:var(--gray2);">To provide premium-quality apparel manufacturing that helps brands grow in global markets.</p>
           </div>
-          <div style="background:rgba(255,107,0,0.07);border:1px solid rgba(255,107,0,0.25);border-radius:12px;padding:1.25rem;">
-            <div style="font-family:var(--font);font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:0.5rem;">Our Vision</div>
-            <p style="font-size:0.85rem;line-height:1.6;color:var(--gray2);">To become a trusted global partner known for quality, innovation, and customer satisfaction.</p>
+          <div style="background:rgba(212, 175, 55, 0.03);border:1px solid var(--border-gold);border-radius:var(--radius);padding:1.5rem;">
+            <div style="font-family:var(--font);font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Our Vision</div>
+            <p style="font-size:0.9rem;line-height:1.6;color:var(--gray2);">To become a trusted global partner known for quality, innovation, and customer satisfaction.</p>
           </div>
         </div>
       </div>
@@ -264,71 +271,125 @@
 <section id="products" class="section">
   <div class="container">
     <div class="section-head reveal">
-      <div class="tag">Our Products</div>
-      <h2>Premium Garments for Every Market</h2>
+      <div class="tag">Our Portfolio</div>
+      <h2>Premium Garment Categories</h2>
       <div class="divider"><span></span><span></span><span></span></div>
-      <p>From casual streetwear to performance sportswear crafted with precision and premium materials for brands worldwide.</p>
+      <p>Engineered for global retail brands, premium streetwear lines, and high-performance athletic wear. Low MOQs with industrial capacity.</p>
     </div>
 
     <div class="products-grid">
 
       <div class="product-card">
         <span class="product-tag-badge">Bestseller</span>
-        <div class="product-icon">&#128085;</div>
-        <h3>T-Shirts</h3>
-        <p>Crew neck, V-neck, oversized and fitted styles in any fabric and print.</p>
+        <div class="product-card-header">
+          <div class="product-category-code">CAT-01</div>
+          <h3 class="product-title">Premium T-Shirts</h3>
+        </div>
+        <p class="product-desc">Oversized, boxy, fitted, and classic crewnecks in heavy French Terry, luxury Supima cotton, and custom blends.</p>
+        <div class="product-specs">
+          <div class="spec-item"><span>Min MOQ</span><strong>100 pcs</strong></div>
+          <div class="spec-item"><span>Capacity</span><strong>15,000 / wk</strong></div>
+        </div>
       </div>
 
       <div class="product-card">
-        <span class="product-tag-badge">Popular</span>
-        <div class="product-icon">&#129528;</div>
-        <h3>Polo Shirts</h3>
-        <p>Classic and modern polo cuts with custom embroidery and logos.</p>
+        <span class="product-tag-badge">Retail Fit</span>
+        <div class="product-card-header">
+          <div class="product-category-code">CAT-02</div>
+          <h3 class="product-title">Polo Shirts</h3>
+        </div>
+        <p class="product-desc">Pique, double-knit, and mercerized cotton polos with custom flat-knit collars, embroidery, and luxury buttons.</p>
+        <div class="product-specs">
+          <div class="spec-item"><span>Min MOQ</span><strong>100 pcs</strong></div>
+          <div class="spec-item"><span>Capacity</span><strong>10,000 / wk</strong></div>
+        </div>
       </div>
 
       <div class="product-card">
-        <div class="product-icon">&#129405;</div>
-        <h3>Hoodies</h3>
-        <p>Pullover and zip-up hoodies with custom fleece weights and finishes.</p>
+        <div class="product-card-header">
+          <div class="product-category-code">CAT-03</div>
+          <h3 class="product-title">Luxury Hoodies</h3>
+        </div>
+        <p class="product-desc">Heavyweight fleece (380-500 GSM), pullovers, full-zips, and drop-shoulder streetwear fits with premium custom details.</p>
+        <div class="product-specs">
+          <div class="spec-item"><span>Min MOQ</span><strong>100 pcs</strong></div>
+          <div class="spec-item"><span>Capacity</span><strong>8,000 / wk</strong></div>
+        </div>
       </div>
 
       <div class="product-card">
-        <div class="product-icon">&#129347;</div>
-        <h3>Sweatshirts</h3>
-        <p>Premium crewneck sweatshirts for retail, streetwear and corporate brands.</p>
+        <div class="product-card-header">
+          <div class="product-category-code">CAT-04</div>
+          <h3 class="product-title">Crewnecks &amp; Fleeces</h3>
+        </div>
+        <p class="product-desc">High-quality brush-back sweatshirts, raglan sleeves, and double-needle stitched crewnecks for retail and luxury brands.</p>
+        <div class="product-specs">
+          <div class="spec-item"><span>Min MOQ</span><strong>100 pcs</strong></div>
+          <div class="spec-item"><span>Capacity</span><strong>8,000 / wk</strong></div>
+        </div>
       </div>
 
       <div class="product-card">
-        <span class="product-tag-badge">New</span>
-        <div class="product-icon">&#127939;</div>
-        <h3>Tracksuits</h3>
-        <p>Matching sets with technical fabrics, moisture wicking and custom fits.</p>
+        <span class="product-tag-badge">New In</span>
+        <div class="product-card-header">
+          <div class="product-category-code">CAT-05</div>
+          <h3 class="product-title">Tracksuits &amp; Sets</h3>
+        </div>
+        <p class="product-desc">Matching coordinated streetwear sets, side-taped panels, premium zippers, custom dye-to-match drawcords.</p>
+        <div class="product-specs">
+          <div class="spec-item"><span>Min MOQ</span><strong>150 pcs</strong></div>
+          <div class="spec-item"><span>Capacity</span><strong>5,000 / wk</strong></div>
+        </div>
       </div>
 
       <div class="product-card">
-        <span class="product-tag-badge">Export</span>
-        <div class="product-icon">&#9889;</div>
-        <h3>Sportswear</h3>
-        <p>Performance-grade athletic wear for clubs, academies and sport brands.</p>
+        <span class="product-tag-badge">Technical</span>
+        <div class="product-card-header">
+          <div class="product-category-code">CAT-06</div>
+          <h3 class="product-title">Performance Sportswear</h3>
+        </div>
+        <p class="product-desc">Breathable, moisture-wicking interlock fabrics, anti-microbial treatments, flatlock seams, and sublimated team kits.</p>
+        <div class="product-specs">
+          <div class="spec-item"><span>Min MOQ</span><strong>150 pcs</strong></div>
+          <div class="spec-item"><span>Capacity</span><strong>7,000 / wk</strong></div>
+        </div>
       </div>
 
       <div class="product-card">
-        <div class="product-icon">&#128170;</div>
-        <h3>Gym Wear</h3>
-        <p>Compression, dry fit and stretch fabrics built for performance and style.</p>
+        <div class="product-card-header">
+          <div class="product-category-code">CAT-07</div>
+          <h3 class="product-title">Gym &amp; Activewear</h3>
+        </div>
+        <p class="product-desc">Compression shirts, dry-fit tees, stringers, squat-proof leggings, and seamless knit wear supporting maximum athletic movement.</p>
+        <div class="product-specs">
+          <div class="spec-item"><span>Min MOQ</span><strong>100 pcs</strong></div>
+          <div class="spec-item"><span>Capacity</span><strong>7,000 / wk</strong></div>
+        </div>
       </div>
 
       <div class="product-card">
-        <div class="product-icon">&#128084;</div>
-        <h3>Casual Wear</h3>
-        <p>Everyday essentials and lifestyle pieces for retail and e-commerce brands.</p>
+        <div class="product-card-header">
+          <div class="product-category-code">CAT-08</div>
+          <h3 class="product-title">Premium Casual Essentials</h3>
+        </div>
+        <p class="product-desc">Tailored joggers, luxury lounge pants, custom shorts, and luxury basic shirts designed for contemporary style brands.</p>
+        <div class="product-specs">
+          <div class="spec-item"><span>Min MOQ</span><strong>100 pcs</strong></div>
+          <div class="spec-item"><span>Capacity</span><strong>10,000 / wk</strong></div>
+        </div>
       </div>
 
       <div class="product-card">
-        <span class="product-tag-badge">Custom</span>
-        <div class="product-icon">&#127912;</div>
-        <h3>Custom Apparel</h3>
-        <p>Fully bespoke garments your design, your fabric, your brand label.</p>
+        <span class="product-tag-badge">Bespoke</span>
+        <div class="product-card-header">
+          <div class="product-category-code">CAT-09</div>
+          <h3 class="product-title">Fully Custom Apparel</h3>
+        </div>
+        <p class="product-desc">Have a unique sketch or tech pack? We translate your bespoke concepts into market-ready custom garment runs.</p>
+        <div class="product-specs">
+          <div class="spec-item"><span>Min MOQ</span><strong>150 pcs</strong></div>
+          <div class="spec-item"><span>Capacity</span><strong>Customizable</strong></div>
+        </div>
       </div>
 
     </div>
@@ -342,56 +403,145 @@
 <section id="services" class="section section--dark">
   <div class="container">
     <div class="section-head reveal">
-      <div class="tag">Our Services</div>
-      <h2>End-to-End Manufacturing Solutions</h2>
+      <div class="tag">Manufacturing Services</div>
+      <h2>Strategic Sourcing Capabilities</h2>
       <div class="divider"><span></span><span></span><span></span></div>
-      <p>Everything from design to delivery we handle the full production chain so you can focus on growing your brand.</p>
+      <p>Whether you require full-scale production from your exact tech packs or complete design-to-delivery support, we offer institutional-grade capacity.</p>
     </div>
 
-    <div class="services-grid">
-
-      <div class="service-card">
-        <div class="service-icon">&#127981;</div>
-        <h3>OEM Manufacturing</h3>
-        <p>We manufacture garments exactly to your provided designs, patterns and technical specifications. Your vision, our precision.</p>
-        <div class="service-learn">Explore Service &rarr;</div>
+    <div class="services-tab-container reveal">
+      <!-- Tabs Sidebar -->
+      <div class="services-tabs">
+        <button class="service-tab-btn active" data-tab="oem">
+          <span class="tab-num">01</span>
+          <div class="tab-btn-content">
+            <h3>OEM Manufacturing</h3>
+            <p>Your Designs, Our Production</p>
+          </div>
+        </button>
+        <button class="service-tab-btn" data-tab="odm">
+          <span class="tab-num">02</span>
+          <div class="tab-btn-content">
+            <h3>ODM Manufacturing</h3>
+            <p>Full Design &amp; Production</p>
+          </div>
+        </button>
+        <button class="service-tab-btn" data-tab="private-label">
+          <span class="tab-num">03</span>
+          <div class="tab-btn-content">
+            <h3>Private Label</h3>
+            <p>White Label Catalog Solutions</p>
+          </div>
+        </button>
       </div>
 
-      <div class="service-card">
-        <div class="service-icon">&#9999;&#65039;</div>
-        <h3>ODM Manufacturing</h3>
-        <p>Need design plus manufacturing? Our in-house team develops original designs and produces them at scale for your brand.</p>
-        <div class="service-learn">Explore Service &rarr;</div>
-      </div>
+      <!-- Tab Content Panels -->
+      <div class="services-panels">
+        <!-- OEM Panel -->
+        <div class="service-panel active" id="panel-oem">
+          <div class="panel-header">
+            <span class="service-badge">Contract Manufacturing</span>
+            <h3>OEM Production</h3>
+            <p class="panel-subtitle">Best for: Established brands, designers, and corporate retailers with structured tech packs and patterns.</p>
+          </div>
+          <p class="panel-desc">We fabricate garments precisely according to your patterns, custom specs, and material requirements. Send us your tech packs, and our sampling unit will prepare pre-production samples for physical review and laboratory testing.</p>
+          
+          <ul class="panel-checklist">
+            <li><span>✓</span> Tech Pack interpretation &amp; material analysis</li>
+            <li><span>✓</span> Custom pattern grading &amp; 3D marker planning</li>
+            <li><span>✓</span> Precision fabric cutting and high-end stitching</li>
+            <li><span>✓</span> Custom embellishment: Screen print, embroidery, DTG, or sublimation</li>
+            <li><span>✓</span> Industrial quality audits and compliance reports</li>
+          </ul>
 
-      <div class="service-card">
-        <div class="service-icon">&#127991;&#65039;</div>
-        <h3>Private Label</h3>
-        <p>We produce premium garments under your brand name labels, tags, packaging all customised to your brand identity.</p>
-        <div class="service-learn">Explore Service &rarr;</div>
-      </div>
+          <div class="panel-specs">
+            <div class="panel-spec-item">
+              <span>Sampling Time</span>
+              <strong>7 - 10 Days</strong>
+            </div>
+            <div class="panel-spec-item">
+              <span>Production Cycle</span>
+              <strong>3 - 4 Weeks</strong>
+            </div>
+            <div class="panel-spec-item">
+              <span>Minimum Order</span>
+              <strong>100 Pcs / Style</strong>
+            </div>
+          </div>
+          
+          <a href="#contact" class="btn btn-primary panel-cta-btn" data-service-select="OEM Manufacturing">Start OEM Inquiry &nbsp;&rarr;</a>
+        </div>
 
-      <div class="service-card">
-        <div class="service-icon">&#127912;</div>
-        <h3>Custom Production</h3>
-        <p>Any size, colour, fabric, print technique or embroidery. Full flexibility for unique and limited-edition collections.</p>
-        <div class="service-learn">Explore Service &rarr;</div>
-      </div>
+        <!-- ODM Panel -->
+        <div class="service-panel" id="panel-odm">
+          <div class="panel-header">
+            <span class="service-badge">Design &amp; Development</span>
+            <h3>ODM Manufacturing</h3>
+            <p class="panel-subtitle">Best for: Growing brands and startup lines looking to scale without dedicated pattern-making teams.</p>
+          </div>
+          <p class="panel-desc">Leverage our professional in-house pattern-makers and designers. We construct original garments from concept sketches, source the fabrics based on your targets, and manufacture them under your brand. We handle the technical load from sketch to shelf.</p>
+          
+          <ul class="panel-checklist">
+            <li><span>✓</span> In-house mood board generation &amp; CAD designs</li>
+            <li><span>✓</span> Fabric R&amp;D: Custom blends, weights, and treatments</li>
+            <li><span>✓</span> Tech Pack creation and custom sizing guides</li>
+            <li><span>✓</span> Comprehensive prototype development</li>
+            <li><span>✓</span> Full-cycle bulk garment assembly</li>
+          </ul>
 
-      <div class="service-card">
-        <div class="service-icon">&#128230;</div>
-        <h3>Bulk Production</h3>
-        <p>Large-scale manufacturing for wholesalers and retail brands consistent quality across every unit, every time.</p>
-        <div class="service-learn">Explore Service &rarr;</div>
-      </div>
+          <div class="panel-specs">
+            <div class="panel-spec-item">
+              <span>Sampling Time</span>
+              <strong>12 - 15 Days</strong>
+            </div>
+            <div class="panel-spec-item">
+              <span>Production Cycle</span>
+              <strong>4 - 5 Weeks</strong>
+            </div>
+            <div class="panel-spec-item">
+              <span>Minimum Order</span>
+              <strong>150 Pcs / Style</strong>
+            </div>
+          </div>
+          
+          <a href="#contact" class="btn btn-primary panel-cta-btn" data-service-select="ODM Manufacturing">Start ODM Inquiry &nbsp;&rarr;</a>
+        </div>
 
-      <div class="service-card">
-        <div class="service-icon">&#127758;</div>
-        <h3>International Export</h3>
-        <p>Full export documentation, freight coordination and global shipping. We deliver to USA, EU, UK, Middle East and beyond.</p>
-        <div class="service-learn">Explore Service &rarr;</div>
-      </div>
+        <!-- Private Label Panel -->
+        <div class="service-panel" id="panel-private-label">
+          <div class="panel-header">
+            <span class="service-badge">White Label Catalog</span>
+            <h3>Private Label Solutions</h3>
+            <p class="panel-subtitle">Best for: Wholesalers, e-commerce dropshippers, and influencers seeking rapid market entry with pre-verified fits.</p>
+          </div>
+          <p class="panel-desc">Fast-track your brand growth. Choose from our pre-developed, market-tested silhouette catalog (heavy hoodies, premium tees, activewear) and customize them with your labels, screen-printed neck tags, custom colorways, and bespoke packaging.</p>
+          
+          <ul class="panel-checklist">
+            <li><span>✓</span> Access to Stitchronix library of custom blocks and fits</li>
+            <li><span>✓</span> Relabeling with high-end woven labels or heat transfers</li>
+            <li><span>✓</span> Custom dye-to-match colorways based on Pantone codes</li>
+            <li><span>✓</span> Premium custom hangtags, stickers, and barcode bag packaging</li>
+            <li><span>✓</span> Low entry barriers and rapid dispatch timelines</li>
+          </ul>
 
+          <div class="panel-specs">
+            <div class="panel-spec-item">
+              <span>Sampling Time</span>
+              <strong>5 - 7 Days</strong>
+            </div>
+            <div class="panel-spec-item">
+              <span>Production Cycle</span>
+              <strong>2 - 3 Weeks</strong>
+            </div>
+            <div class="panel-spec-item">
+              <span>Minimum Order</span>
+              <strong>100 Pcs / Catalog Fit</strong>
+            </div>
+          </div>
+          
+          <a href="#contact" class="btn btn-primary panel-cta-btn" data-service-select="Private Label">Start Private Label Inquiry &nbsp;&rarr;</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -400,71 +550,103 @@
 <!-- ================================================================
      MANUFACTURING PROCESS
 ================================================================ -->
-<section id="process" class="section section--alt">
+<section id="process" class="section">
   <div class="container">
-    <div class="section-head reveal">
-      <div class="tag">How We Work</div>
-      <h2>Our Manufacturing Process</h2>
-      <div class="divider"><span></span><span></span><span></span></div>
-      <p>A streamlined, transparent 6-step process from your first enquiry to final delivery at your doorstep.</p>
-    </div>
-
-    <div class="process-steps">
-
-      <div class="step">
-        <div class="step-num">
-          <span class="step-icon">&#128172;</span>
-          <span class="step-num-label">Step 01</span>
+    <div class="process-layout">
+      <div class="process-header reveal">
+        <div class="tag">How We Work</div>
+        <h2>Our Manufacturing Process</h2>
+        <div class="divider"><span></span><span></span><span></span></div>
+        <p>A structured, enterprise-grade workflow from initial inquiry to customs-cleared delivery — built for precision at every step.</p>
+        <div class="process-guarantee">
+          <div class="guarantee-item">
+            <strong>100%</strong>
+            <span>QC Pass Rate</span>
+          </div>
+          <div class="guarantee-item">
+            <strong>24hr</strong>
+            <span>Quote Turnaround</span>
+          </div>
+          <div class="guarantee-item">
+            <strong>Zero</strong>
+            <span>Hidden Costs</span>
+          </div>
         </div>
-        <h3>Consultation</h3>
-        <p>You share your requirements product type, quantity, design, fabric and budget.</p>
       </div>
 
-      <div class="step">
-        <div class="step-num">
-          <span class="step-icon">&#128203;</span>
-          <span class="step-num-label">Step 02</span>
+      <div class="process-timeline reveal-right">
+        <div class="timeline-item">
+          <div class="timeline-node">
+            <div class="timeline-dot">01</div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-step-tag">Inquiry Phase</div>
+            <h3>Initial Consultation &amp; Brief</h3>
+            <p>Submit your garment brief — product category, target quantities, fabric preferences, market and target cost per unit. Our account managers respond within 24 hours with a structured intake form.</p>
+            <div class="timeline-deliverable">Structured Project Brief Document</div>
+          </div>
         </div>
-        <h3>Quotation</h3>
-        <p>We prepare a detailed costing sheet with timeline, MOQ and fabric options.</p>
-      </div>
 
-      <div class="step">
-        <div class="step-num">
-          <span class="step-icon">&#129525;</span>
-          <span class="step-num-label">Step 03</span>
+        <div class="timeline-item">
+          <div class="timeline-node">
+            <div class="timeline-dot">02</div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-step-tag">Costing Phase</div>
+            <h3>Detailed Quotation &amp; Fabric Sourcing</h3>
+            <p>We prepare a comprehensive costing sheet including unit pricing per MOQ tier, fabric specifications with GSM and composition, full production lead time, and shipping cost estimates to your destination port.</p>
+            <div class="timeline-deliverable">Factory Costing Sheet + Fabric Swatch Report</div>
+          </div>
         </div>
-        <h3>Sampling</h3>
-        <p>Pre-production sample created for your approval before bulk production begins.</p>
-      </div>
 
-      <div class="step">
-        <div class="step-num">
-          <span class="step-icon">&#127959;&#65039;</span>
-          <span class="step-num-label">Step 04</span>
+        <div class="timeline-item">
+          <div class="timeline-node">
+            <div class="timeline-dot">03</div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-step-tag">Development Phase</div>
+            <h3>Pre-Production Sampling</h3>
+            <p>A physical pre-production sample is crafted using the confirmed fabric, pattern and technical spec. You receive photos and measurement charts for review. Physical samples can be couriered on request.</p>
+            <div class="timeline-deliverable">Physical Sample + Measurement Audit Sheet</div>
+          </div>
         </div>
-        <h3>Production</h3>
-        <p>Skilled team begins bulk manufacturing with strict quality checks at each stage.</p>
-      </div>
 
-      <div class="step">
-        <div class="step-num">
-          <span class="step-icon">&#9989;</span>
-          <span class="step-num-label">Step 05</span>
+        <div class="timeline-item">
+          <div class="timeline-node">
+            <div class="timeline-dot">04</div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-step-tag">Production Phase</div>
+            <h3>Bulk Manufacturing</h3>
+            <p>Upon sample sign-off and deposit confirmation, we enter bulk production. Our floor supervisors conduct inline quality checks at cutting, stitching, and finishing stages. Weekly progress updates are shared.</p>
+            <div class="timeline-deliverable">Weekly Production Progress Reports</div>
+          </div>
         </div>
-        <h3>Quality Control</h3>
-        <p>100% inspection against your specifications measurements, stitching, print and finish.</p>
-      </div>
 
-      <div class="step">
-        <div class="step-num">
-          <span class="step-icon">&#128674;</span>
-          <span class="step-num-label">Step 06</span>
+        <div class="timeline-item">
+          <div class="timeline-node">
+            <div class="timeline-dot">05</div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-step-tag">Quality Phase</div>
+            <h3>Final QC &amp; Compliance Audit</h3>
+            <p>Every finished garment passes a 12-point quality inspection protocol covering measurements, stitching tension, print registration, color consistency, and finishing. AQL 2.5 inspection standards available on request.</p>
+            <div class="timeline-deliverable">12-Point QC Report + AQL Certificate</div>
+          </div>
         </div>
-        <h3>Packing &amp; Delivery</h3>
-        <p>Professional packaging with your branding, then shipped via air or sea worldwide.</p>
-      </div>
 
+        <div class="timeline-item">
+          <div class="timeline-node">
+            <div class="timeline-dot">06</div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-step-tag">Dispatch Phase</div>
+            <h3>Packaging &amp; Global Export</h3>
+            <p>Garments are packed as per your brand spec — individual poly bags, carton packing with size ratio manifests, and barcode compliance if required. We handle full export documentation, freight booking, and DHL/FedEx express options.</p>
+            <div class="timeline-deliverable">Export Invoice + Bill of Lading + Packing List</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -475,76 +657,54 @@
 ================================================================ -->
 <section id="why" class="section section--dark">
   <div class="container">
-    <div class="why-grid">
+    <div class="section-head reveal">
+      <div class="tag">Why Stitchronix</div>
+      <h2>Built for B2B. Trusted by Brands.</h2>
+      <div class="divider"><span></span><span></span><span></span></div>
+      <p>From international fashion labels to sports clubs and e-commerce brands — we are the trusted manufacturing backbone behind them all.</p>
+    </div>
 
-      <!-- List -->
-      <div class="reveal-left">
-        <div class="tag">Why Stitchronix</div>
-        <h2 style="margin-bottom:2rem;">Why Brands Choose Us</h2>
-        <div class="why-list">
+    <div class="why-bento reveal">
 
-          <div class="why-item">
-            <div class="why-icon">&#127885;</div>
-            <h4>Premium Quality</h4>
-            <p>Top-grade fabrics and strict QC at every production stage.</p>
-          </div>
-
-          <div class="why-item">
-            <div class="why-icon">&#128176;</div>
-            <h4>Competitive Pricing</h4>
-            <p>Factory-direct rates. Get more margin without sacrificing quality.</p>
-          </div>
-
-          <div class="why-item">
-            <div class="why-icon">&#128201;</div>
-            <h4>Low MOQ</h4>
-            <p>Start small and scale. Perfect for startups and test runs.</p>
-          </div>
-
-          <div class="why-item">
-            <div class="why-icon">&#9881;&#65039;</div>
-            <h4>OEM &amp; ODM</h4>
-            <p>Full flexibility bring your design or let us create one.</p>
-          </div>
-
-          <div class="why-item">
-            <div class="why-icon">&#127991;&#65039;</div>
-            <h4>Custom Branding</h4>
-            <p>Labels, hang tags, packaging all under your brand name.</p>
-          </div>
-
-          <div class="why-item">
-            <div class="why-icon">&#9201;&#65039;</div>
-            <h4>Timely Delivery</h4>
-            <p>We respect your deadlines. On-time delivery, every order.</p>
-          </div>
-
-          <div class="why-item">
-            <div class="why-icon">&#128104;&#8205;&#128295;</div>
-            <h4>Skilled Team</h4>
-            <p>Experienced production specialists across all garment categories.</p>
-          </div>
-
-          <div class="why-item">
-            <div class="why-icon">&#127760;</div>
-            <h4>Global Export</h4>
-            <p>Serving brands across USA, Europe, Middle East &amp; beyond.</p>
-          </div>
-
+      <div class="why-card featured">
+        <div class="why-card-num">500+</div>
+        <h4>International Brand Partners</h4>
+        <p>We serve clients across 28 countries, providing full-cycle OEM/ODM garment production with institutional-grade quality controls and end-to-end export documentation.</p>
+        <div class="cert-badges">
+          <span class="cert-badge">ISO 9001 Certified</span>
+          <span class="cert-badge">Oeko-Tex Compliant</span>
+          <span class="cert-badge">AQL 2.5 Standards</span>
+          <span class="cert-badge">Export Registered</span>
         </div>
       </div>
 
-      <!-- Circle visual -->
-      <div class="reveal-right" style="display:flex;align-items:center;justify-content:center;">
-        <div class="why-circle-wrap">
-          <div class="why-circle-bg"></div>
-          <div class="why-circle-ring"></div>
-          <div class="why-circle-ring"></div>
-          <div class="why-center">
-            <div class="why-center-num" data-target="8" data-suffix="+">0+</div>
-            <div class="why-center-text">Reasons to<br>choose us</div>
-          </div>
-        </div>
+      <div class="why-card center-stat">
+        <div class="why-card-num">15+</div>
+        <h4>Years of Manufacturing</h4>
+        <p style="font-size:0.82rem;">Established expertise in garment production</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-card-num">100%</div>
+        <h4>Quality Inspection</h4>
+        <p>Every unit is individually inspected before dispatch. Zero defect shipments backed by written QC reports.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-card-num">100</div>
+        <h4>Minimum MOQ per style</h4>
+        <p>Start small, scale fast. We accommodate startup brand runs alongside large retail orders.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-card-num">24hr</div>
+        <h4>Quote Response Time</h4>
+        <p>Our production engineers review your brief and respond with a detailed costing sheet within one business day.</p>
+      </div>
+
+      <div class="why-card full-width">
+        <h4>Delivering to 28+ Export Destinations</h4>
+        <p style="max-width:700px;">USA &bull; United Kingdom &bull; Germany &bull; France &bull; Canada &bull; Australia &bull; UAE &bull; Saudi Arabia &bull; Netherlands &bull; Italy &bull; Belgium &bull; Sweden &bull; Denmark &bull; Switzerland &bull; New Zealand &bull; Qatar &bull; Kuwait</p>
       </div>
 
     </div>
@@ -553,91 +713,104 @@
 
 
 <!-- ================================================================
-     GALLERY — CATEGORY-BASED
+     GALLERY
 ================================================================ -->
-<section id="gallery" class="section section--alt">
+<section id="gallery" class="section">
   <div class="container">
     <div class="section-head reveal">
-      <div class="tag">Our Gallery</div>
-      <h2>Browse by Category</h2>
+      <div class="tag">Production Gallery</div>
+      <h2>From Factory Floor to Global Shelf</h2>
       <div class="divider"><span></span><span></span><span></span></div>
-      <p>Click any category to view our premium collection. Each garment showcases quality craftsmanship and attention to detail.</p>
+      <p>A curated look at our premium garment output — tracksuits, hoodies, performance wear and more from our production facility.</p>
     </div>
 
-    <div class="gallery-categories reveal">
+    <!-- Filter Tabs -->
+    <div class="gallery-filter-tabs reveal">
+      <button class="gallery-filter-btn active" data-filter="all">All</button>
+      <button class="gallery-filter-btn" data-filter="hoodies">Hoodies</button>
+      <button class="gallery-filter-btn" data-filter="tshirts">T-Shirts</button>
+      <button class="gallery-filter-btn" data-filter="sportswear">Sportswear</button>
+      <button class="gallery-filter-btn" data-filter="sets">Tracksuits</button>
+    </div>
 
-      <button class="category-card" data-category="polo-shirts">
-        <div class="category-icon">&#129528;</div>
-        <h3>Polo Shirts</h3>
-        <p>Classic & modern designs</p>
-        <span class="category-btn">View Gallery &rarr;</span>
-      </button>
+    <!-- Image Grid -->
+    <div class="gallery-grid reveal">
 
-      <button class="category-card" data-category="t-shirts">
-        <div class="category-icon">&#128085;</div>
-        <h3>T-Shirts</h3>
-        <p>Premium cotton & blends</p>
-        <span class="category-btn">View Gallery &rarr;</span>
-      </button>
+      <div class="gallery-image-card" data-cat="hoodies">
+        <img src="https://images.unsplash.com/photo-1556821840-3a63f15732ce?q=80&w=800&auto=format&fit=crop" alt="Premium Hoodie Collection" loading="lazy" />
+        <div class="gallery-card-overlay">
+          <div class="gallery-card-cat">Hoodies</div>
+          <div class="gallery-card-label">Heavyweight Pullover Fleece</div>
+        </div>
+      </div>
 
-      <button class="category-card" data-category="hoodies">
-        <div class="category-icon">&#129405;</div>
-        <h3>Hoodies</h3>
-        <p>Comfort & style combined</p>
-        <span class="category-btn">View Gallery &rarr;</span>
-      </button>
+      <div class="gallery-image-card" data-cat="tshirts">
+        <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600&auto=format&fit=crop" alt="Premium T-Shirts" loading="lazy" />
+        <div class="gallery-card-overlay">
+          <div class="gallery-card-cat">T-Shirts</div>
+          <div class="gallery-card-label">Oversized Supima Cotton Tee</div>
+        </div>
+      </div>
 
-      <button class="category-card" data-category="tracksuits">
-        <div class="category-icon">&#127939;</div>
-        <h3>Tracksuits</h3>
-        <p>Athletic excellence</p>
-        <span class="category-btn">View Gallery &rarr;</span>
-      </button>
+      <div class="gallery-image-card" data-cat="sportswear">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=600&auto=format&fit=crop" alt="Sportswear Collection" loading="lazy" />
+        <div class="gallery-card-overlay">
+          <div class="gallery-card-cat">Sportswear</div>
+          <div class="gallery-card-label">Performance Athletic Wear</div>
+        </div>
+      </div>
 
-      <button class="category-card" data-category="sportswear">
-        <div class="category-icon">&#9889;</div>
-        <h3>Sportswear</h3>
-        <p>Performance gear</p>
-        <span class="category-btn">View Gallery &rarr;</span>
-      </button>
+      <div class="gallery-image-card" data-cat="sets">
+        <img src="https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?q=80&w=600&auto=format&fit=crop" alt="Tracksuit Sets" loading="lazy" />
+        <div class="gallery-card-overlay">
+          <div class="gallery-card-cat">Tracksuits</div>
+          <div class="gallery-card-label">Coordinated Set — Elite Series</div>
+        </div>
+      </div>
 
-      <button class="category-card" data-category="gym-wear">
-        <div class="category-icon">&#128170;</div>
-        <h3>Gym Wear</h3>
-        <p>Built for performance</p>
-        <span class="category-btn">View Gallery &rarr;</span>
-      </button>
+      <div class="gallery-image-card" data-cat="hoodies">
+        <img src="https://images.unsplash.com/photo-1545291730-faff8ca1d4b0?q=80&w=600&auto=format&fit=crop" alt="Zip Hoodie" loading="lazy" />
+        <div class="gallery-card-overlay">
+          <div class="gallery-card-cat">Hoodies</div>
+          <div class="gallery-card-label">Full-Zip Streetwear Hoodie</div>
+        </div>
+      </div>
 
-      <button class="category-card" data-category="custom-apparel">
-        <div class="category-icon">&#127912;</div>
-        <h3>Custom Apparel</h3>
-        <p>Your design, our craft</p>
-        <span class="category-btn">View Gallery &rarr;</span>
-      </button>
+      <div class="gallery-image-card" data-cat="tshirts">
+        <img src="https://images.unsplash.com/photo-1612336307429-8a898d10e223?q=80&w=800&auto=format&fit=crop" alt="Premium Polo" loading="lazy" />
+        <div class="gallery-card-overlay">
+          <div class="gallery-card-cat">T-Shirts / Polos</div>
+          <div class="gallery-card-label">Merino Pique Polo — Custom Brand</div>
+        </div>
+      </div>
+
+      <div class="gallery-image-card" data-cat="sportswear">
+        <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600&auto=format&fit=crop" alt="Athletic Compression Shorts" loading="lazy" />
+        <div class="gallery-card-overlay">
+          <div class="gallery-card-cat">Sportswear</div>
+          <div class="gallery-card-label">Athletic Compression wear</div>
+        </div>
+      </div>
+
+      <div class="gallery-image-card" data-cat="sets">
+        <img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?q=80&w=600&auto=format&fit=crop" alt="Custom Streetwear Jogger" loading="lazy" />
+        <div class="gallery-card-overlay">
+          <div class="gallery-card-cat">Tracksuits</div>
+          <div class="gallery-card-label">Custom Streetwear Jogger</div>
+        </div>
+      </div>
+
+      <div class="gallery-image-card" data-cat="hoodies">
+        <img src="https://images.unsplash.com/photo-1513373133930-b9780d61172a?q=80&w=600&auto=format&fit=crop" alt="Minimalist Lounge Hoodie" loading="lazy" />
+        <div class="gallery-card-overlay">
+          <div class="gallery-card-cat">Hoodies</div>
+          <div class="gallery-card-label">Minimalist Lounge Hoodie</div>
+        </div>
+      </div>
 
     </div>
   </div>
 </section>
-
-
-<!-- ================================================================
-     GALLERY MODAL — LIGHTBOX
-================================================================ -->
-<div id="galleryModal" class="gallery-modal">
-  <div class="gallery-modal-content">
-    <button class="gallery-modal-close" aria-label="Close">&times;</button>
-    <div class="gallery-modal-header">
-      <h2 id="galleryModalTitle">Category Gallery</h2>
-      <p id="galleryModalSubtitle">Click any image to view in full screen</p>
-    </div>
-    <div class="gallery-modal-grid" id="galleryModalGrid">
-      <!-- Images loaded dynamically -->
-    </div>
-    <div class="gallery-modal-empty" id="galleryModalEmpty" style="display:none;">
-      <p>No images available yet. Please add images to the folder.</p>
-    </div>
-  </div>
-</div>
 
 
 <!-- ================================================================
@@ -719,10 +892,10 @@
           </a>
         </div>
 
-        <div style="margin-top:2.5rem;background:linear-gradient(135deg,rgba(255,107,0,0.12),rgba(255,107,0,0.04));border:1px solid rgba(255,107,0,0.3);border-radius:16px;padding:1.75rem;">
-          <div style="font-size:2rem;margin-bottom:0.75rem;">&#9889;</div>
-          <h3 style="font-size:1.2rem;margin-bottom:0.5rem;">Fast Turnaround</h3>
-          <p style="font-size:0.85rem;color:var(--gray);">Get your quote within <strong style="color:var(--orange);">24 hours</strong>. Samples ready in <strong style="color:var(--orange);">7&ndash;10 days</strong>. Bulk delivery as fast as <strong style="color:var(--orange);">3&ndash;4 weeks</strong>.</p>
+        <div style="margin-top:2.5rem;background:linear-gradient(135deg,rgba(212, 175, 55, 0.08),rgba(212, 175, 55, 0.02));border:1px solid var(--border-gold);border-radius:var(--radius-lg);padding:1.75rem;">
+          <div style="font-size:2rem;margin-bottom:0.75rem;">⚡</div>
+          <h3 style="font-size:1.2rem;margin-bottom:0.5rem;color:var(--white);">Fast Turnaround</h3>
+          <p style="font-size:0.85rem;color:var(--gray);">Get your quote within <strong style="color:var(--gold);">24 hours</strong>. Samples ready in <strong style="color:var(--gold);">7&ndash;10 days</strong>. Bulk delivery as fast as <strong style="color:var(--gold);">3&ndash;4 weeks</strong>.</p>
         </div>
       </div>
 
@@ -734,86 +907,107 @@
 
           <form id="quoteForm" novalidate>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label for="fname">Your Name *</label>
-                <input type="text" id="fname" name="name" placeholder="John Smith" required />
-              </div>
-              <div class="form-group">
-                <label for="femail">Email Address *</label>
-                <input type="email" id="femail" name="email" placeholder="john@brand.com" required />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="fphone">WhatsApp / Phone</label>
-                <input type="tel" id="fphone" name="phone" placeholder="+1 555 000 0000" />
-              </div>
-              <div class="form-group">
-                <label for="fcountry">Target Country</label>
-                <input type="text" id="fcountry" name="country" placeholder="USA / UK / UAE ..." />
+            <!-- Progress Bar -->
+            <div class="form-progress">
+              <div class="progress-bar-bg"></div>
+              <div class="progress-bar-fill" id="progressBar" style="width: 50%;"></div>
+              <div class="progress-steps-indicators">
+                <span class="progress-indicator active" id="ind-1">1. Contact Info</span>
+                <span class="progress-indicator" id="ind-2">2. Product Specs</span>
               </div>
             </div>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label for="fproduct">Product Type *</label>
-                <select id="fproduct" name="product" required>
-                  <option value="" disabled selected>Select product...</option>
-                  <option>T-Shirts</option>
-                  <option>Polo Shirts</option>
-                  <option>Hoodies</option>
-                  <option>Sweatshirts</option>
-                  <option>Tracksuits</option>
-                  <option>Sportswear</option>
-                  <option>Gym Wear</option>
-                  <option>Casual Wear</option>
-                  <option>Custom Apparel</option>
-                  <option>Other</option>
-                </select>
+            <!-- Step 1: Contact details -->
+            <div class="form-step active" id="step-1">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="fname">Your Name *</label>
+                  <input type="text" id="fname" name="name" placeholder="John Smith" required />
+                </div>
+                <div class="form-group">
+                  <label for="femail">Email Address *</label>
+                  <input type="email" id="femail" name="email" placeholder="john@brand.com" required />
+                </div>
               </div>
-              <div class="form-group">
-                <label for="fqty">Quantity (pieces)</label>
-                <select id="fqty" name="quantity">
-                  <option value="" disabled selected>Select quantity...</option>
-                  <option>Under 100</option>
-                  <option>100 &ndash; 500</option>
-                  <option>500 &ndash; 1,000</option>
-                  <option>1,000 &ndash; 5,000</option>
-                  <option>5,000 &ndash; 10,000</option>
-                  <option>10,000+</option>
-                </select>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="fphone">WhatsApp / Phone</label>
+                  <input type="tel" id="fphone" name="phone" placeholder="+1 555 000 0000" />
+                </div>
+                <div class="form-group">
+                  <label for="fcountry">Target Country</label>
+                  <input type="text" id="fcountry" name="country" placeholder="USA / UK / UAE ..." />
+                </div>
+              </div>
+
+              <div class="form-step-btns">
+                <button type="button" class="btn btn-primary" id="nextBtn">Next: Specs &nbsp;&rarr;</button>
               </div>
             </div>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label for="ffabric">Fabric Preference</label>
-                <input type="text" id="ffabric" name="fabric" placeholder="e.g. 100% Cotton, Polyester..." />
+            <!-- Step 2: Specs -->
+            <div class="form-step" id="step-2">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="fproduct">Product Type *</label>
+                  <select id="fproduct" name="product" required>
+                    <option value="" disabled selected>Select product...</option>
+                    <option>T-Shirts</option>
+                    <option>Polo Shirts</option>
+                    <option>Hoodies</option>
+                    <option>Sweatshirts</option>
+                    <option>Tracksuits</option>
+                    <option>Sportswear</option>
+                    <option>Gym Wear</option>
+                    <option>Casual Wear</option>
+                    <option>Custom Apparel</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="fqty">Quantity (pieces)</label>
+                  <select id="fqty" name="quantity">
+                    <option value="" disabled selected>Select quantity...</option>
+                    <option>Under 100</option>
+                    <option>100 &ndash; 500</option>
+                    <option>500 &ndash; 1,000</option>
+                    <option>1,000 &ndash; 5,000</option>
+                    <option>5,000 &ndash; 10,000</option>
+                    <option>10,000+</option>
+                  </select>
+                </div>
               </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="ffabric">Fabric Preference</label>
+                  <input type="text" id="ffabric" name="fabric" placeholder="e.g. 100% Cotton, Polyester..." />
+                </div>
+                <div class="form-group">
+                  <label for="flogo">Logo / Branding Type</label>
+                  <select id="flogo" name="logo">
+                    <option value="" disabled selected>Select type...</option>
+                    <option>Screen Print</option>
+                    <option>Embroidery</option>
+                    <option>DTF / Heat Transfer</option>
+                    <option>Sublimation</option>
+                    <option>No Logo</option>
+                    <option>Not Sure Yet</option>
+                  </select>
+                </div>
+              </div>
+
               <div class="form-group">
-                <label for="flogo">Logo / Branding Type</label>
-                <select id="flogo" name="logo">
-                  <option value="" disabled selected>Select type...</option>
-                  <option>Screen Print</option>
-                  <option>Embroidery</option>
-                  <option>DTF / Heat Transfer</option>
-                  <option>Sublimation</option>
-                  <option>No Logo</option>
-                  <option>Not Sure Yet</option>
-                </select>
+                <label for="fmsg">Additional Details</label>
+                <textarea id="fmsg" name="message" placeholder="Share any design details, references, deadlines or special requirements..."></textarea>
+              </div>
+
+              <div class="form-step-btns">
+                <button type="button" class="btn btn-outline" id="prevBtn">&larr; Back</button>
+                <button type="submit" class="btn btn-primary form-submit">Submit Quote Request &nbsp;&rarr;</button>
               </div>
             </div>
-
-            <div class="form-group">
-              <label for="fmsg">Additional Details</label>
-              <textarea id="fmsg" name="message" placeholder="Share any design details, references, deadlines or special requirements..."></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary form-submit">
-              Request a Quote &nbsp;&rarr;
-            </button>
 
             <div class="form-success" id="formSuccess">
               &#9989; &nbsp;Thank you! Your enquiry has been sent successfully. We'll get back to you within 24 hours.
@@ -899,8 +1093,14 @@
 
     </div>
 
-    <div class="footer-bottom">
+    <div class="footer-bottom container">
       <p>&copy; 2025 <span>Stitchronix Apparel</span>. All rights reserved. Lahore, Punjab, Pakistan.</p>
+      <div class="footer-compliance">
+        <span class="compliance-tag">ISO 9001</span>
+        <span class="compliance-tag">Oeko-Tex</span>
+        <span class="compliance-tag">Export Licensed</span>
+        <span class="compliance-tag">AQL Certified</span>
+      </div>
     </div>
   </div>
 </footer>

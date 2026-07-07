@@ -2,6 +2,36 @@
    STITCHRONIX APPAREL — script.js
    ============================================================ */
 
+/* ── Custom Cursor ── */
+(function() {
+  const cursor = document.getElementById('customCursor');
+  const cursorDot = document.getElementById('customCursorDot');
+  if (!cursor || !cursorDot) return;
+
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      cursorDot.style.left = e.clientX + 'px';
+      cursorDot.style.top = e.clientY + 'px';
+    });
+
+    const updateInteractives = () => {
+      const targets = document.querySelectorAll('a, button, select, input, textarea, .product-card, .service-card, .category-card, .step, .gallery-image-card, .social-btn');
+      targets.forEach(el => {
+        if (el.dataset.cursorBound) return;
+        el.dataset.cursorBound = "true";
+        el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+      });
+    };
+
+    updateInteractives();
+    const obs = new MutationObserver(updateInteractives);
+    obs.observe(document.body, { childList: true, subtree: true });
+  }
+})();
+
 /* ── Ticker — seamless infinite scroll (requestAnimationFrame) ── */
 (function () {
   const track = document.querySelector('.ticker-track');
@@ -140,19 +170,89 @@ const errorMsg    = document.getElementById('formError');
 const EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";   // e.g. "service_abc123"
 const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";  // e.g. "template_xyz789"
 
+/* ── Multi-step form navigation ── */
+const step1 = document.getElementById('step-1');
+const step2 = document.getElementById('step-2');
+const nextBtn = document.getElementById('nextBtn');
+const prevBtn = document.getElementById('prevBtn');
+const progressBar = document.getElementById('progressBar');
+const ind1 = document.getElementById('ind-1');
+const ind2 = document.getElementById('ind-2');
+
+function showStep(stepNum) {
+  if (stepNum === 1) {
+    step1.classList.add('active');
+    step2.classList.remove('active');
+    progressBar.style.width = '50%';
+    ind1.classList.add('active');
+    ind2.classList.remove('active');
+  } else {
+    step1.classList.remove('active');
+    step2.classList.add('active');
+    progressBar.style.width = '100%';
+    ind1.classList.add('active');
+    ind2.classList.add('active');
+  }
+}
+
+// Basic field validation check for Step 1
+function isStep1Valid() {
+  const name = form.fname.value.trim();
+  const email = form.femail.value.trim();
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!name) {
+    form.fname.reportValidity();
+    return false;
+  }
+  if (!email || !emailRegex.test(email)) {
+    form.femail.reportValidity();
+    return false;
+  }
+  return true;
+}
+
+if (nextBtn) {
+  nextBtn.addEventListener('click', () => {
+    if (isStep1Valid()) {
+      showStep(2);
+    }
+  });
+}
+
+if (prevBtn) {
+  prevBtn.addEventListener('click', () => {
+    showStep(1);
+  });
+}
+
 form.addEventListener('submit', e => {
   e.preventDefault();
+  
+  // Validate Step 1 first
+  if (!isStep1Valid()) {
+    showStep(1);
+    return;
+  }
+
+  // Validate Step 2 next
+  const product = form.fproduct.value;
+  if (!product) {
+    form.fproduct.reportValidity();
+    errorMsg.style.display = 'block';
+    errorMsg.innerHTML = '&#10060; &nbsp;Please select a Product Type.';
+    return;
+  }
+
   const btn = form.querySelector('.form-submit');
   const originalText = btn.textContent;
 
-  // Hide previous messages
   success.style.display  = 'none';
   errorMsg.style.display = 'none';
 
   btn.textContent = 'Sending…';
   btn.disabled    = true;
 
-  // Gather form data
   const formData = {
     name:     form.fname.value.trim(),
     email:    form.femail.value.trim(),
@@ -166,18 +266,10 @@ form.addEventListener('submit', e => {
     to_email: "mamoonahmad799@gmail.com"
   };
 
-  // Basic required-field validation
-  if (!formData.name || !formData.email || !formData.product) {
-    errorMsg.style.display = 'block';
-    errorMsg.innerHTML     = '&#10060; &nbsp;Please fill in all required fields (Name, Email, Product Type).';
-    btn.textContent = originalText;
-    btn.disabled    = false;
-    return;
-  }
-
   emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formData)
     .then(() => {
       form.reset();
+      showStep(1); // Reset back to step 1
       success.style.display = 'block';
       btn.textContent = 'Sent Successfully ✓';
       setTimeout(() => {
@@ -201,17 +293,44 @@ document.querySelectorAll('.products-grid .product-card').forEach((card, i) => {
   card.classList.add('reveal');
 });
 
-document.querySelectorAll('.services-grid .service-card').forEach((card, i) => {
-  card.dataset.delay = i * 100;
+document.querySelectorAll('.timeline-item').forEach((item, i) => {
+  item.dataset.delay = i * 100;
+  item.classList.add('reveal');
+});
+
+document.querySelectorAll('.why-bento .why-card').forEach((card, i) => {
+  card.dataset.delay = i * 80;
   card.classList.add('reveal');
 });
 
-document.querySelectorAll('.process-steps .step').forEach((step, i) => {
-  step.dataset.delay = i * 120;
-  step.classList.add('reveal');
+/* Re-observe after adding classes (must call after DOM is ready) */
+document.querySelectorAll('.products-grid .product-card, .timeline-item, .why-bento .why-card').forEach(el => {
+  revealObs.observe(el);
 });
 
-/* Re-observe after adding classes (must call after DOM is ready) */
-document.querySelectorAll('.products-grid .product-card, .services-grid .service-card, .process-steps .step').forEach(el => {
-  revealObs.observe(el);
+/* ── Services tab navigation ── */
+const serviceTabs = document.querySelectorAll('.service-tab-btn');
+const servicePanels = document.querySelectorAll('.service-panel');
+
+serviceTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    serviceTabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+
+    const target = tab.dataset.tab;
+    servicePanels.forEach(p => {
+      p.classList.toggle('active', p.id === `panel-${target}`);
+    });
+  });
+});
+
+// Auto-select product type in contact form when starting an inquiry from services
+const productSelect = document.getElementById('fproduct');
+document.querySelectorAll('.panel-cta-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const selectedService = btn.dataset.serviceSelect;
+    if (productSelect && selectedService) {
+      productSelect.value = selectedService;
+    }
+  });
 });

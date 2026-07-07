@@ -1,83 +1,10 @@
-/* ============================================================
-   STITCHRONIX GALLERY — Category Modal & Lightbox
-   ============================================================
-   HOW TO ADD IMAGES (NO CODE CHANGES NEEDED):
-
-   1. Place your images inside the appropriate category folder:
-      gallery/polo-shirts/
-      gallery/t-shirts/
-      gallery/hoodies/
-      gallery/tracksuits/
-      gallery/sportswear/
-      gallery/gym-wear/
-      gallery/custom-apparel/
-
-   2. Add the image filenames to the GALLERY_IMAGES object below.
-      Example:
-      't-shirts': ['img1.jpg', 'img2.jpg', 'img3.jpg']
-
-   3. That's it! The gallery automatically displays all images
-      listed for each category.
-
-   Supported image formats: .jpg, .jpeg, .png, .webp
-   ============================================================ */
-
-
 (function() {
   'use strict';
 
-  // ── Configuration ──
-  // Base path where gallery folders are located (relative to index.html)
-  const GALLERY_BASE = 'gallery';
-
-  // ── IMAGE LISTS — Add your image filenames here ──
-  // Just add filenames to each category array. No other code changes needed.
-  const GALLERY_IMAGES = {
-    'polo-shirts': [
-      // Add polo shirt image filenames here, e.g.: 'polo1.jpg', 'polo2.jpg'
-    ],
-    't-shirts': [
-      't01.jpg',
-      't02.jpg',
-      't03.jpg',
-      't04.jpg'
-    ],
-    'hoodies': [
-      // Add hoodie image filenames here
-    ],
-    'tracksuits': [
-      // Add tracksuit image filenames here
-    ],
-    'sportswear': [
-      // Add sportswear image filenames here
-    ],
-    'gym-wear': [
-      // Add gym wear image filenames here
-    ],
-    'custom-apparel': [
-      // Add custom apparel image filenames here
-    ]
-  };
-
-  // Category display names (used in modal title)
-  const CATEGORY_NAMES = {
-    'polo-shirts': 'Polo Shirts',
-    't-shirts': 'T-Shirts',
-    'hoodies': 'Hoodies',
-    'tracksuits': 'Tracksuits',
-    'sportswear': 'Sportswear',
-    'gym-wear': 'Gym Wear',
-    'custom-apparel': 'Custom Apparel'
-  };
-
-
   // ── DOM Elements ──
-  const modal = document.getElementById('galleryModal');
-  const modalTitle = document.getElementById('galleryModalTitle');
-  const modalGrid = document.getElementById('galleryModalGrid');
-  const modalEmpty = document.getElementById('galleryModalEmpty');
-  const modalClose = document.querySelector('.gallery-modal-close');
-
+  const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+  const imageCards = document.querySelectorAll('.gallery-image-card');
+  
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxCurrent = document.getElementById('lightboxCurrent');
@@ -87,87 +14,43 @@
   const lightboxNext = document.querySelector('.lightbox-next');
 
   // ── State ──
-  let currentImages = [];
-  let currentIndex = 0;
+  let activeImages = []; // List of image elements currently visible
+  let currentIndex = 0;  // Index in the activeImages array
 
-
-  // ── Category Card Click Handlers ──
-  document.querySelectorAll('.category-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const category = card.dataset.category;
-      openCategoryGallery(category);
-    });
-  });
-
-
-  // ── Open Category Gallery ──
-  function openCategoryGallery(category) {
-    const categoryName = CATEGORY_NAMES[category] || category;
-    modalTitle.textContent = categoryName + ' Collection';
-
-    // Get images from the GALLERY_IMAGES configuration
-    const images = GALLERY_IMAGES[category] || [];
-
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-
-    if (images.length === 0) {
-      showEmptyState();
-      return;
-    }
-
-    // Store images for lightbox navigation
-    currentImages = images.map(img => `${GALLERY_BASE}/${category}/${img}`);
-    currentIndex = 0;
-
-    // Render image cards
-    renderGalleryImages();
-  }
-
-
-  // ── Render Gallery Images ──
-  function renderGalleryImages() {
-    modalGrid.innerHTML = '';
-    modalEmpty.style.display = 'none';
-
-    currentImages.forEach((imgSrc, index) => {
-      const card = document.createElement('div');
-      card.className = 'gallery-image-card';
-      card.innerHTML = `<img src="${imgSrc}" alt="Gallery image ${index + 1}" loading="lazy" />`;
-
-      // Open lightbox on click
-      card.addEventListener('click', () => {
-        openLightbox(index);
-      });
-
-      modalGrid.appendChild(card);
+  // ── Filtering Logic ──
+  function filterGallery(category) {
+    activeImages = [];
+    imageCards.forEach(card => {
+      const cardCat = card.dataset.cat;
+      if (category === 'all' || cardCat === category) {
+        card.style.display = 'block';
+        // Fade in animation transition
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.95)';
+        card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'scale(1)';
+        }, 50);
+        activeImages.push(card);
+      } else {
+        card.style.display = 'none';
+      }
     });
   }
 
+  // Initialize active images
+  filterGallery('all');
 
-  // ── Show Empty State ──
-  function showEmptyState() {
-    modalGrid.innerHTML = '';
-    modalEmpty.style.display = 'block';
-  }
-
-
-  // ── Close Modal ──
-  function closeModal() {
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
-    modalGrid.innerHTML = '';
-    currentImages = [];
-  }
-
-  modalClose.addEventListener('click', closeModal);
-
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      closeModal();
-    }
+  // Bind filter button click handlers
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filterValue = btn.dataset.filter;
+      filterGallery(filterValue);
+    });
   });
-
 
   // ── Lightbox Functions ──
   function openLightbox(index) {
@@ -179,70 +62,80 @@
 
   function closeLightbox() {
     lightbox.classList.remove('active');
-    // Keep modal open, restore body scroll only if modal is also closed
-    if (!modal.classList.contains('active')) {
-      document.body.style.overflow = '';
-    }
+    document.body.style.overflow = '';
   }
 
   function updateLightboxImage() {
-    lightboxImg.src = currentImages[currentIndex];
+    if (activeImages.length === 0) return;
+    const activeCard = activeImages[currentIndex];
+    const imgEl = activeCard.querySelector('img');
+    if (imgEl) {
+      lightboxImg.src = imgEl.src;
+      lightboxImg.alt = imgEl.alt;
+    }
     lightboxCurrent.textContent = currentIndex + 1;
-    lightboxTotal.textContent = currentImages.length;
+    lightboxTotal.textContent = activeImages.length;
   }
 
+  // Prev / Next actions
   function prevImage() {
-    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+    if (activeImages.length === 0) return;
+    currentIndex = (currentIndex - 1 + activeImages.length) % activeImages.length;
     updateLightboxImage();
   }
 
   function nextImage() {
-    currentIndex = (currentIndex + 1) % currentImages.length;
+    if (activeImages.length === 0) return;
+    currentIndex = (currentIndex + 1) % activeImages.length;
     updateLightboxImage();
   }
 
-
-  // ── Lightbox Event Listeners ──
-  lightboxClose.addEventListener('click', closeLightbox);
-  lightboxPrev.addEventListener('click', prevImage);
-  lightboxNext.addEventListener('click', nextImage);
-
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-      closeLightbox();
-    }
+  // Bind click handlers to image cards for lightbox
+  imageCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const index = activeImages.indexOf(card);
+      if (index !== -1) {
+        openLightbox(index);
+      }
+    });
   });
 
+  // Lightbox Event Listeners
+  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+  if (lightboxPrev) lightboxPrev.addEventListener('click', prevImage);
+  if (lightboxNext) lightboxNext.addEventListener('click', nextImage);
 
-  // ── Keyboard Navigation ──
+  if (lightbox) {
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target.classList.contains('lightbox-content')) {
+        closeLightbox();
+      }
+    });
+  }
+
+  // Keyboard Controls
   document.addEventListener('keydown', (e) => {
-    // Lightbox controls
-    if (lightbox.classList.contains('active')) {
+    if (lightbox && lightbox.classList.contains('active')) {
       if (e.key === 'Escape') closeLightbox();
       if (e.key === 'ArrowLeft') prevImage();
       if (e.key === 'ArrowRight') nextImage();
-      return;
-    }
-
-    // Modal controls
-    if (modal.classList.contains('active')) {
-      if (e.key === 'Escape') closeModal();
     }
   });
 
-
-  // ── Touch/Swipe Support for Lightbox (Mobile) ──
+  // Touch Swipe Support for mobile
   let touchStartX = 0;
   let touchEndX = 0;
 
-  lightbox.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-  }, { passive: true });
+  if (lightbox) {
+    lightbox.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
 
-  lightbox.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-  }, { passive: true });
+    lightbox.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+  }
 
   function handleSwipe() {
     const swipeThreshold = 50;
