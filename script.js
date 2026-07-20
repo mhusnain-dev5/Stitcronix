@@ -1,9 +1,9 @@
 /* ============================================================
-   STITCHRONIX APPAREL — script.js
+   STITCHRONIX APPAREL  script.js
    ============================================================ */
 
 /* ── Custom Cursor ── */
-(function() {
+(function () {
   const cursor = document.getElementById('customCursor');
   const cursorDot = document.getElementById('customCursorDot');
   if (!cursor || !cursorDot) return;
@@ -32,7 +32,7 @@
   }
 })();
 
-/* ── Ticker — seamless infinite scroll (requestAnimationFrame) ── */
+/* ── Ticker  seamless infinite scroll (requestAnimationFrame) ── */
 (function () {
   const track = document.querySelector('.ticker-track');
   if (!track) return;
@@ -64,7 +64,7 @@
 
 /* ── Navbar scroll behaviour ── */
 const navbar = document.getElementById('navbar');
-const btt    = document.getElementById('btt');
+const btt = document.getElementById('btt');
 
 window.addEventListener('scroll', () => {
   const y = window.scrollY;
@@ -73,7 +73,7 @@ window.addEventListener('scroll', () => {
 });
 
 /* ── Mobile menu ── */
-const hamburger  = document.querySelector('.hamburger');
+const hamburger = document.querySelector('.hamburger');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 hamburger.addEventListener('click', () => {
@@ -91,8 +91,8 @@ mobileMenu.querySelectorAll('a').forEach(link => {
 });
 
 /* ── Active nav link on scroll ── */
-const sections  = document.querySelectorAll('section[id]');
-const navLinks  = document.querySelectorAll('.nav-links a, .mobile-menu a');
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
 
 function setActiveNav() {
   const scrollY = window.scrollY + 120;
@@ -161,13 +161,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-/* ── Quote form submit — EmailJS ── */
-const form        = document.getElementById('quoteForm');
-const success     = document.getElementById('formSuccess');
-const errorMsg    = document.getElementById('formError');
+/* ── Quote form submit  EmailJS ── */
+const form = document.getElementById('quoteForm');
+const success = document.getElementById('formSuccess');
+const errorMsg = document.getElementById('formError');
 
-// EmailJS configuration — replace these with your actual IDs
-const EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";   // e.g. "service_abc123"
+// EmailJS configuration  replace these with your actual IDs
+const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";   // e.g. "service_abc123"
 const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";  // e.g. "template_xyz789"
 
 /* ── Multi-step form navigation ── */
@@ -228,7 +228,7 @@ if (prevBtn) {
 
 form.addEventListener('submit', e => {
   e.preventDefault();
-  
+
   // Validate Step 1 first
   if (!isStep1Valid()) {
     showStep(1);
@@ -247,22 +247,22 @@ form.addEventListener('submit', e => {
   const btn = form.querySelector('.form-submit');
   const originalText = btn.textContent;
 
-  success.style.display  = 'none';
+  success.style.display = 'none';
   errorMsg.style.display = 'none';
 
   btn.textContent = 'Sending…';
-  btn.disabled    = true;
+  btn.disabled = true;
 
   const formData = {
-    name:     form.fname.value.trim(),
-    email:    form.femail.value.trim(),
-    phone:    form.fphone.value.trim(),
-    country:  form.fcountry.value.trim(),
-    product:  form.fproduct.value,
+    name: form.fname.value.trim(),
+    email: form.femail.value.trim(),
+    phone: form.fphone.value.trim(),
+    country: form.fcountry.value.trim(),
+    product: form.fproduct.value,
     quantity: form.fqty.value,
-    fabric:   form.ffabric.value.trim(),
-    logo:     form.flogo.value,
-    message:  form.fmsg.value.trim(),
+    fabric: form.ffabric.value.trim(),
+    logo: form.flogo.value,
+    message: form.fmsg.value.trim(),
     to_email: "mamoonahmad799@gmail.com"
   };
 
@@ -275,15 +275,15 @@ form.addEventListener('submit', e => {
       setTimeout(() => {
         success.style.display = 'none';
         btn.textContent = originalText;
-        btn.disabled    = false;
+        btn.disabled = false;
       }, 5000);
     })
     .catch(err => {
       console.error('EmailJS error:', err);
       errorMsg.style.display = 'block';
-      errorMsg.innerHTML     = '&#10060; &nbsp;Something went wrong. Please try again or email us directly at <strong>mamoonahmad799@gmail.com</strong>';
+      errorMsg.innerHTML = '&#10060; &nbsp;Something went wrong. Please try again or email us directly at <strong>mamoonahmad799@gmail.com</strong>';
       btn.textContent = originalText;
-      btn.disabled    = false;
+      btn.disabled = false;
     });
 });
 

@@ -1,5 +1,5 @@
 /* ============================================================
-   STITCHRONIX APPAREL — styles.css
+   STITCHRONIX APPAREL  styles.css
    Colors: #000 (black) | #FF6B00 (orange) | #fff (white)
    ============================================================ */
 
@@ -455,7 +455,7 @@ p {
 }
 .hero-stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-top: 4rem;
   padding-top: 2.5rem;
@@ -521,7 +521,6 @@ p {
   height: 260px;
   object-fit: contain;
   filter: drop-shadow(0 8px 30px rgba(0,0,0,0.6));
-  animation: pulse 6s ease-in-out infinite;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   background: rgba(6, 6, 7, 0.7);
   border: 1px solid var(--border-gold);
@@ -530,7 +529,7 @@ p {
   backdrop-filter: blur(12px);
 }
 .hero-logo-img:hover {
-  transform: scale(1.08) rotate(2deg);
+  transform: scale(1.04);
   border-color: var(--gold);
   box-shadow: var(--shadow-gold);
 }
@@ -548,7 +547,6 @@ p {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: var(--shadow);
-  animation: borderGlow 4s ease-in-out infinite;
 }
 .hero-badge-icon {
   font-size: 1.6rem;
@@ -630,6 +628,71 @@ p {
 .ticker-item::after { content: '✦'; color: rgba(0,0,0,0.3); }
 
 /* ============================================================
+   BRAND PARTNERS
+   ============================================================ */
+.partners-section {
+  background: var(--black2);
+  border-bottom: 1px solid var(--border);
+  padding: 80px 0;
+}
+.partners-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.partner-card {
+  background: var(--black3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 280px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+.partner-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 175, 55, 0.25);
+  background: rgba(212, 175, 55, 0.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+.partner-logo {
+  font-family: var(--font);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gray);
+  transition: color 0.3s ease;
+  user-select: none;
+}
+.partner-logo--equator {
+  font-weight: 800;
+  letter-spacing: 6px;
+}
+.partner-logo--lafmilia {
+  font-weight: 300;
+  letter-spacing: 4px;
+}
+.partner-card:hover .partner-logo {
+  color: var(--white);
+}
+
+@media (max-width: 768px) {
+  .partner-card {
+    padding: 2rem 3rem;
+    min-width: 220px;
+  }
+  .partner-logo {
+    font-size: 1.5rem;
+  }
+}
+
+/* ============================================================
    ABOUT
    ============================================================ */
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
@@ -641,11 +704,13 @@ p {
   aspect-ratio: 4/5;
   display: flex; align-items: center; justify-content: center;
 }
-.about-logo-large {
-  width: 75%; object-fit: contain;
-  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+.about-img-factory {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.about-img-wrap:hover .about-logo-large { transform: scale(1.15); }
+.about-img-wrap:hover .about-img-factory { transform: scale(1.05); }
 .about-corner {
   position: absolute; width: 60px; height: 60px;
   border-color: var(--orange); border-style: solid;
@@ -666,6 +731,16 @@ p {
 .about-text .tag { margin-bottom: 0.75rem; }
 .about-text h2 { margin-bottom: 1.25rem; }
 .about-text p  { margin-bottom: 1rem; }
+.about-statement {
+  font-family: var(--font2);
+  font-weight: 500;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--gold);
+  border-left: 2px solid var(--gold);
+  padding-left: 1.25rem;
+  margin: 1.5rem 0;
+}
 .about-pills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0; }
 .pill {
   font-family: var(--font); font-size: 0.8rem; font-weight: 600;
@@ -944,7 +1019,7 @@ p {
 }
 
 /* ============================================================
-   PROCESS — PREMIUM TIMELINE
+   PROCESS  PREMIUM TIMELINE
    ============================================================ */
 .process-timeline {
   position: relative;
@@ -1095,7 +1170,7 @@ p {
 }
 
 /* ============================================================
-   WHY CHOOSE US — BENTO GRID
+   WHY CHOOSE US  BENTO GRID
    ============================================================ */
 .why-bento {
   display: grid;
@@ -1186,8 +1261,66 @@ p {
   font-size: 0.8rem;
 }
 
+/* ── Why Features 6-Card Grid ── */
+.why-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.why-feature-card {
+  background: var(--black3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2rem 2.25rem;
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), border-color 0.3s ease, background 0.3s ease;
+  position: relative;
+}
+.why-feature-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(212,175,55,0.25);
+  background: rgba(212,175,55,0.02);
+}
+.why-feature-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: rgba(212,175,55,0.07);
+  border: 1px solid rgba(212,175,55,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+.why-feature-card:hover .why-feature-icon {
+  background: rgba(212,175,55,0.12);
+  border-color: rgba(212,175,55,0.3);
+}
+.why-feature-card h4 {
+  font-family: var(--font);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+.why-feature-card p {
+  font-size: 0.875rem;
+  color: var(--gray);
+  line-height: 1.65;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .why-features-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .why-features-grid { grid-template-columns: 1fr; }
+}
+
 /* ============================================================
-   GALLERY — FILTERABLE GRID
+   GALLERY  FILTERABLE GRID
    ============================================================ */
 .gallery-filter-tabs {
   display: flex;
@@ -1500,7 +1633,7 @@ p {
 }
 
 /* ============================================================
-   LIGHTBOX — FULLSCREEN VIEWER
+   LIGHTBOX  FULLSCREEN VIEWER
    ============================================================ */
 .lightbox {
   display: none;
