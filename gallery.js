@@ -1,5 +1,5 @@
 /* ============================================================
-   STITCHRONIX — MANUFACTURING PORTFOLIO
+   STITCHRONIX  MANUFACTURING PORTFOLIO
    Premium B2B Apparel Catalog
    ------------------------------------------------------------
    Modular vanilla-JS build. Logical "components":
@@ -22,20 +22,20 @@
      empty sub-category.
   ──────────────────────────────────────────────────────────── */
   const LEVEL1 = [
-    { key: 'all',          label: 'All',           type: 'all' },
-    { key: 'men',          label: 'Men',           type: 'gender' },
-    { key: 'women',        label: 'Women',         type: 'gender' },
-    { key: 'kids',         label: 'Kids',          type: 'gender' },
-    { key: 'sportswear',   label: 'Sportswear',    type: 'capability' },
-    { key: 'oem',          label: 'OEM',           type: 'capability' },
-    { key: 'odm',          label: 'ODM',           type: 'capability' },
+    { key: 'all', label: 'All', type: 'all' },
+    { key: 'men', label: 'Men', type: 'gender' },
+    { key: 'women', label: 'Women', type: 'gender' },
+    { key: 'kids', label: 'Kids', type: 'gender' },
+    { key: 'sportswear', label: 'Sportswear', type: 'capability' },
+    { key: 'oem', label: 'OEM', type: 'capability' },
+    { key: 'odm', label: 'ODM', type: 'capability' },
     { key: 'privatelabel', label: 'Private Label', type: 'capability' },
   ];
 
   const SUBCATS = {
-    men:   ['T-Shirts', 'Polo Shirts', 'Hoodies', 'Sweatshirts', 'Tracksuits', 'Shorts', 'Joggers', 'Trousers', 'Denim'],
+    men: ['T-Shirts', 'Polo Shirts', 'Hoodies', 'Sweatshirts', 'Tracksuits', 'Shorts', 'Joggers', 'Trousers', 'Denim'],
     women: ['T-Shirts', 'Polo Shirts', 'Hoodies', 'Crop Tops', 'Leggings', 'Tracksuits', 'Sports Bras', 'Activewear', 'Dresses', 'Tank Tops', 'Pajamas'],
-    kids:  ['School Uniform', 'Hoodies', 'Tracksuits', 'T-Shirts', 'Shorts', 'Baby Wear', 'Pajamas'],
+    kids: ['School Uniform', 'Hoodies', 'Tracksuits', 'T-Shirts', 'Shorts', 'Baby Wear', 'Pajamas'],
   };
 
   /* label → slug + slug → label (single source of truth) */
@@ -105,7 +105,7 @@
       colorNames: ['Black', 'White', 'Royal Blue', 'Brown'],
       sizes: ['M', 'L', 'XL', 'XXL', 'XXXL'], moq: 150,
       manufacturingType: 'ODM · Private Label', isNew: false, isBestseller: false, sport: false,
-      description: 'Boxy oversized silhouette in 400 GSM polar fleece. Extra-deep kangaroo pocket, dropped shoulders and extended back hem — a high-demand block for streetwear and fashion houses.',
+      description: 'Boxy oversized silhouette in 400 GSM polar fleece. Extra-deep kangaroo pocket, dropped shoulders and extended back hem  a high-demand block for streetwear and fashion houses.',
       printingOptions: ['Screen Print', 'DTF Print', 'Vinyl Graphics'],
       embroideryOptions: ['Oversized Back Logo', 'Chest Patch', 'Sleeve Wordmark'],
       labelOptions: labelPack, packagingOptions: ['Poly Bag', 'Flat-Pack Box'],
@@ -118,7 +118,7 @@
       colorNames: ['Black', 'White', 'Sage', 'Sand', 'Camel'],
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'], moq: 100,
       manufacturingType: 'OEM · ODM · Private Label', isNew: false, isBestseller: true, sport: false,
-      description: '220 GSM 100% Supima Cotton oversized tee with a garment-dyed finish. Boxy fit, dropped shoulders and a clean hemline — the definitive premium-basics blank.',
+      description: '220 GSM 100% Supima Cotton oversized tee with a garment-dyed finish. Boxy fit, dropped shoulders and a clean hemline  the definitive premium-basics blank.',
       printingOptions: ['Screen Print', 'DTF', 'Discharge Print', 'Pigment Dye'],
       embroideryOptions: ['Small Chest Logo', 'Left Chest', 'Sleeve Brand'],
       labelOptions: labelPack, packagingOptions: ['Poly Bag', 'Box Pack', 'Folded & Tagged'],
@@ -144,7 +144,7 @@
       colorNames: ['Black', 'Charcoal', 'Mocha', 'Graphite'],
       sizes: ['S', 'M', 'L', 'XL', 'XXL'], moq: 100,
       manufacturingType: 'OEM · ODM', isNew: true, isBestseller: false, sport: false,
-      description: 'Drop-shoulder boxy tee in 200 GSM ring-spun cotton with a lived-in texture. Takes every decoration method beautifully — a favourite for graphic-tee labels.',
+      description: 'Drop-shoulder boxy tee in 200 GSM ring-spun cotton with a lived-in texture. Takes every decoration method beautifully  a favourite for graphic-tee labels.',
       printingOptions: ['Screen Print', 'DTF', 'Discharge Print'],
       embroideryOptions: ['Chest Patch', 'Sleeve Wordmark'],
       labelOptions: labelPack, packagingOptions: ['Poly Bag', 'Flat-Pack Box'],
@@ -157,7 +157,7 @@
       colorNames: ['Black', 'Navy', 'Red', 'Green', 'Orange'],
       sizes: ['S', 'M', 'L', 'XL', 'XXL'], moq: 150,
       manufacturingType: 'OEM · Sublimation', isNew: false, isBestseller: true, sport: true,
-      description: '160 GSM 100% polyester interlock with moisture-wicking and anti-microbial treatment. Flat-lock seams reduce chafing — engineered for team kits, clubs and performance brands.',
+      description: '160 GSM 100% polyester interlock with moisture-wicking and anti-microbial treatment. Flat-lock seams reduce chafing  engineered for team kits, clubs and performance brands.',
       printingOptions: ['Sublimation', 'Heat Transfer', 'Vinyl Graphics'],
       embroideryOptions: ['Club Badge', 'Sponsor Logo', 'Name & Number'],
       labelOptions: labelPack, packagingOptions: ['Poly Bag', 'Individual Label', 'Bulk Carton'],
@@ -221,7 +221,7 @@
       colorNames: ['Black', 'Charcoal', 'Plum', 'Brown'],
       sizes: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL'], moq: 100,
       manufacturingType: 'OEM · Private Label', isNew: false, isBestseller: false, sport: false,
-      description: 'Brushed-fleece jogger with side taping, custom cord tips and zip pockets. Tapered leg and ribbed cuff — a high-turnover block for streetwear and athleisure labels.',
+      description: 'Brushed-fleece jogger with side taping, custom cord tips and zip pockets. Tapered leg and ribbed cuff  a high-turnover block for streetwear and athleisure labels.',
       printingOptions: ['Screen Print', 'Reflective Print'],
       embroideryOptions: ['Hip Logo', 'Leg Wordmark'],
       labelOptions: labelPack, packagingOptions: ['Poly Bag', 'Premium Box'],
@@ -340,7 +340,7 @@
       colorNames: ['Slate', 'Mocha', 'Moss', 'Black'],
       sizes: ['XS', 'S', 'M', 'L', 'XL'], moq: 120,
       manufacturingType: 'OEM · ODM', isNew: true, isBestseller: false, sport: true,
-      description: 'Matching ribbed activewear set — a scoop-back top with built-in shelf bra and high-waist leggings. Buttery-soft ribbed knit with a sculpting fit.',
+      description: 'Matching ribbed activewear set  a scoop-back top with built-in shelf bra and high-waist leggings. Buttery-soft ribbed knit with a sculpting fit.',
       printingOptions: ['Heat-Transfer Logo'],
       embroideryOptions: ['Waistband Logo'],
       labelOptions: labelPack, packagingOptions: ['Poly Bag (Set)'],
@@ -405,7 +405,7 @@
       colorNames: ['Dusty Rose', 'Slate Blue', 'Oatmeal', 'Black'],
       sizes: ['XS', 'S', 'M', 'L', 'XL'], moq: 120,
       manufacturingType: 'OEM · ODM', isNew: false, isBestseller: false, sport: false,
-      description: 'Two-piece brushed-cotton pajama set with piped edges and a relaxed fit. Long-sleeve button shirt with matching wide-leg pant — a giftable loungewear staple.',
+      description: 'Two-piece brushed-cotton pajama set with piped edges and a relaxed fit. Long-sleeve button shirt with matching wide-leg pant  a giftable loungewear staple.',
       printingOptions: ['All-Over Print', 'Screen Print'],
       embroideryOptions: ['Chest Pocket Monogram'],
       labelOptions: labelPack, packagingOptions: ['Tissue Wrap', 'Gift Box'],
@@ -540,34 +540,34 @@
   ──────────────────────────────────────────────────────────── */
   const $ = id => document.getElementById(id);
 
-  const level1Wrap  = $('galleryLevel1');
-  const level2Wrap  = $('galleryLevel2');
-  const grid        = $('galleryGrid');
-  const emptyState  = $('galleryEmpty');
-  const emptyReset  = $('emptyResetBtn');
-  const countEl     = $('resultsCount');
-  const viewMoreWrap= $('galleryViewMore');
+  const level1Wrap = $('galleryLevel1');
+  const level2Wrap = $('galleryLevel2');
+  const grid = $('galleryGrid');
+  const emptyState = $('galleryEmpty');
+  const emptyReset = $('emptyResetBtn');
+  const countEl = $('resultsCount');
+  const viewMoreWrap = $('galleryViewMore');
   const viewMoreBtn = $('viewMoreBtn');
 
   /* Modal */
   const modalOverlay = $('productModalOverlay');
-  const modalPanel   = $('productModal');
-  const modalClose   = $('modalClose');
-  const modalPrev    = $('modalPrev');
-  const modalNext    = $('modalNext');
+  const modalPanel = $('productModal');
+  const modalClose = $('modalClose');
+  const modalPrev = $('modalPrev');
+  const modalNext = $('modalNext');
 
   /* Lightbox */
-  const lb          = $('galleryLightbox');
-  const lbImg       = $('lightboxImg');
-  const lbStage     = $('lbStage');
-  const lbCounter   = $('lbCounter');
-  const lbName      = $('lbName');
-  const lbPrev      = $('lbPrev');
-  const lbNext      = $('lbNext');
-  const lbClose     = $('lbClose');
-  const lbZoomIn    = $('lbZoomIn');
-  const lbZoomOut   = $('lbZoomOut');
-  const lbFit       = $('lbFit');
+  const lb = $('galleryLightbox');
+  const lbImg = $('lightboxImg');
+  const lbStage = $('lbStage');
+  const lbCounter = $('lbCounter');
+  const lbName = $('lbName');
+  const lbPrev = $('lbPrev');
+  const lbNext = $('lbNext');
+  const lbClose = $('lbClose');
+  const lbZoomIn = $('lbZoomIn');
+  const lbZoomOut = $('lbZoomOut');
+  const lbFit = $('lbFit');
 
   /* ────────────────────────────────────────────────────────────
      FILTERING
@@ -716,8 +716,8 @@
     const badge = p.isNew
       ? '<span class="gx-badge gx-badge--new">New</span>'
       : p.isBestseller
-      ? '<span class="gx-badge gx-badge--best">Bestseller</span>'
-      : '';
+        ? '<span class="gx-badge gx-badge--best">Bestseller</span>'
+        : '';
 
     // Capability pills (OEM / ODM / Private Label)
     const caps = [];
@@ -730,7 +730,7 @@
       <div class="gx-card-media">
         <div class="gx-skeleton"></div>
         ${badge}
-        <img src="${p.image}" alt="${p.name} — ${catLabel} manufactured by Stitchronix"
+        <img src="${p.image}" alt="${p.name}  ${catLabel} manufactured by Stitchronix"
              loading="lazy" decoding="async" width="600" height="750" />
         <div class="gx-card-hover" aria-hidden="true">
           <span class="gx-hover-eyebrow">${catLabel}</span>
@@ -778,8 +778,8 @@
         e.stopPropagation();
         const act = actEl.dataset.act;
         if (act === 'quote') return scrollToQuote(actEl.dataset.name);
-        if (act === 'zoom')  return openLightbox(state.filtered.findIndex(x => x.id === p.id));
-        if (act === 'view')  return openModal(p);
+        if (act === 'zoom') return openLightbox(state.filtered.findIndex(x => x.id === p.id));
+        if (act === 'view') return openModal(p);
       }
       openModal(p);
     });
@@ -795,13 +795,13 @@
   ──────────────────────────────────────────────────────────── */
   const cardObserver = ('IntersectionObserver' in window)
     ? new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' })
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' })
     : null;
 
   function revealCards() {
@@ -852,7 +852,7 @@
     const genderLabel = p.gender.charAt(0).toUpperCase() + p.gender.slice(1);
 
     $('modalImg').src = p.image;
-    $('modalImg').alt = `${p.name} — ${catLabel}`;
+    $('modalImg').alt = `${p.name}  ${catLabel}`;
     $('modalEyebrow').textContent = `${genderLabel} · ${catLabel}`;
     $('modalName').textContent = p.name;
     $('modalDesc').textContent = p.description;
@@ -904,10 +904,10 @@
     });
 
     // Customization groups
-    $('modalPrinting').innerHTML   = chipList(p.printingOptions, 'On request');
+    $('modalPrinting').innerHTML = chipList(p.printingOptions, 'On request');
     $('modalEmbroidery').innerHTML = chipList(p.embroideryOptions, 'Not applicable');
-    $('modalLabels').innerHTML     = chipList(p.labelOptions, 'Standard woven label');
-    $('modalPackaging').innerHTML  = chipList(p.packagingOptions, 'Poly bag');
+    $('modalLabels').innerHTML = chipList(p.labelOptions, 'Standard woven label');
+    $('modalPackaging').innerHTML = chipList(p.packagingOptions, 'Poly bag');
 
     // Footer actions
     $('modalZoomBtn').onclick = () => {
@@ -919,8 +919,8 @@
   }
 
   if (modalClose) modalClose.addEventListener('click', closeModal);
-  if (modalPrev)  modalPrev.addEventListener('click', () => navModal(-1));
-  if (modalNext)  modalNext.addEventListener('click', () => navModal(1));
+  if (modalPrev) modalPrev.addEventListener('click', () => navModal(-1));
+  if (modalNext) modalNext.addEventListener('click', () => navModal(1));
   if (modalOverlay) modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
 
   /* ────────────────────────────────────────────────────────────
@@ -971,12 +971,12 @@
   }
   function setZoom(z) { state.zoom = Math.min(Math.max(z, 1), 4); if (state.zoom === 1) { state.panX = 0; state.panY = 0; } applyZoom(); }
 
-  if (lbPrev)  lbPrev.addEventListener('click', () => navLightbox(-1));
-  if (lbNext)  lbNext.addEventListener('click', () => navLightbox(1));
+  if (lbPrev) lbPrev.addEventListener('click', () => navLightbox(-1));
+  if (lbNext) lbNext.addEventListener('click', () => navLightbox(1));
   if (lbClose) lbClose.addEventListener('click', closeLightbox);
-  if (lbZoomIn)  lbZoomIn.addEventListener('click', () => setZoom(state.zoom + 0.5));
+  if (lbZoomIn) lbZoomIn.addEventListener('click', () => setZoom(state.zoom + 0.5));
   if (lbZoomOut) lbZoomOut.addEventListener('click', () => setZoom(state.zoom - 0.5));
-  if (lbFit)     lbFit.addEventListener('click', () => setZoom(1));
+  if (lbFit) lbFit.addEventListener('click', () => setZoom(1));
   if (lb) lb.addEventListener('click', (e) => { if (e.target === lb || e.target === lbStage) closeLightbox(); });
 
   // Wheel zoom
@@ -1045,7 +1045,7 @@
   document.addEventListener('keydown', (e) => {
     if (lb && lb.classList.contains('active')) {
       if (e.key === 'Escape') closeLightbox();
-      else if (e.key === 'ArrowLeft')  navLightbox(-1);
+      else if (e.key === 'ArrowLeft') navLightbox(-1);
       else if (e.key === 'ArrowRight') navLightbox(1);
       else if (e.key === '+' || e.key === '=') setZoom(state.zoom + 0.5);
       else if (e.key === '-') setZoom(state.zoom - 0.5);
@@ -1054,7 +1054,7 @@
     }
     if (modalOverlay && modalOverlay.classList.contains('active')) {
       if (e.key === 'Escape') closeModal();
-      else if (e.key === 'ArrowLeft')  navModal(-1);
+      else if (e.key === 'ArrowLeft') navModal(-1);
       else if (e.key === 'ArrowRight') navModal(1);
     }
   });

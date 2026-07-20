@@ -1,5 +1,5 @@
 /* ============================================================
-   STITCHRONIX — MANUFACTURING PORTFOLIO
+   STITCHRONIX  MANUFACTURING PORTFOLIO
    Premium B2B Apparel Catalog  ·  gallery.css
    ============================================================ */
 
@@ -180,7 +180,7 @@
 .gx-chip--l2.active .gx-chip-count { color: var(--gold); background: rgba(212, 175, 55, 0.14); }
 
 /* ============================================================
-   PRODUCT GRID  —  STRICT EQUAL-HEIGHT LAYOUT
+   PRODUCT GRID    STRICT EQUAL-HEIGHT LAYOUT
    ============================================================ */
 .gx-grid {
   display: grid;
