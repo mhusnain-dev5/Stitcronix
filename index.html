@@ -727,10 +727,13 @@
       </div>
 
       <div class="why-feature-card">
+        <div class="why-feature-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
         </div>
         <h4>OEM &bull; ODM &bull; Private Label</h4>
         <p>Complete manufacturing solutions for fashion brands — from your tech packs to full design-to-delivery, under your brand identity.</p>
       </div>
+
     </div>
   </div>
 </section>
@@ -738,269 +741,199 @@
 
 
 <!-- ================================================================
-     GALLERY — PREMIUM B2B MANUFACTURING PORTFOLIO
+     GALLERY — PREMIUM B2B PRODUCT CATALOG
 ================================================================ -->
 <link rel="stylesheet" href="gallery.css" />
-<section id="gallery" class="gc-section">
+<section id="gallery" class="section gx-section">
   <div class="container">
 
-    <!-- Section Head -->
-    <div class="gc-head reveal">
-      <div class="tag">Manufacturing Portfolio</div>
-      <h2 class="gc-title">Our Manufacturing Portfolio</h2>
+    <!-- ── Section Head ── -->
+    <div class="section-head reveal">
+      <div class="tag">Product Catalog</div>
+      <h2>Our Manufacturing Portfolio</h2>
       <div class="divider"><span></span><span></span><span></span></div>
-      <p class="gc-subtitle">Explore a selection of garments we manufacture for international fashion brands. Every style can be customized according to your specifications.</p>
+      <p class="gx-subtitle">Explore a selection of garments we manufacture for international fashion brands. Every style can be customized according to your specifications.</p>
+
+      <div class="gx-trust">
+        <span class="gx-trust-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          OEM · ODM · Private Label
+        </span>
+        <span class="gx-trust-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          Low MOQ from 100 pcs
+        </span>
+        <span class="gx-trust-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Export to 20+ Markets
+        </span>
+      </div>
     </div>
 
-    <!-- ── FILTER SYSTEM ── -->
-    <div class="gc-filters reveal" id="gcFilters">
-
-      <!-- Level 1: Primary Tabs -->
-      <div class="gc-tabs-l1" role="tablist" aria-label="Filter by category">
-        <button class="gc-tab-l1 active" data-filter="all" role="tab" aria-selected="true">All</button>
-        <button class="gc-tab-l1" data-filter="men" role="tab" aria-selected="false">Men</button>
-        <button class="gc-tab-l1" data-filter="women" role="tab" aria-selected="false">Women</button>
-        <button class="gc-tab-l1" data-filter="kids" role="tab" aria-selected="false">Kids</button>
-        <button class="gc-tab-l1" data-filter="sportswear" role="tab" aria-selected="false">Sportswear</button>
-        <div class="gc-tab-divider"></div>
-        <button class="gc-tab-l1 gc-tab-mfg" data-filter="oem" role="tab" aria-selected="false">OEM</button>
-        <button class="gc-tab-l1 gc-tab-mfg" data-filter="odm" role="tab" aria-selected="false">ODM</button>
-        <button class="gc-tab-l1 gc-tab-mfg" data-filter="private" role="tab" aria-selected="false">Private Label</button>
+    <!-- ── Two-Level Filter Bar ── -->
+    <div class="gx-filters reveal">
+      <div class="gx-filters-head">
+        <span class="gx-filters-label">Filter Catalog</span>
+        <span class="gx-results" id="resultsCount" aria-live="polite"><strong>0</strong> Styles</span>
       </div>
-
-      <!-- Level 2: Subcategory Pills (shown dynamically) -->
-      <div class="gc-tabs-l2" id="gcTabsL2" role="tablist" aria-label="Filter by subcategory" hidden></div>
-
-      <!-- Toolbar Row -->
-      <div class="gc-toolbar">
-        <div class="gc-search-wrap">
-          <svg class="gc-search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <input type="search" id="gcSearch" class="gc-search" placeholder="Search products, fabrics, styles…" aria-label="Search products" autocomplete="off" />
-        </div>
-        <select id="gcSort" class="gc-sort" aria-label="Sort products">
-          <option value="default">Sort: Featured</option>
-          <option value="new">New Arrivals First</option>
-          <option value="name-asc">Name A → Z</option>
-          <option value="moq-asc">MOQ: Low → High</option>
-          <option value="moq-desc">MOQ: High → Low</option>
-          <option value="gsm-asc">GSM: Low → High</option>
-          <option value="gsm-desc">GSM: High → Low</option>
-        </select>
-        <div class="gc-count" id="gcCount" aria-live="polite"><strong>0</strong> Products</div>
-      </div>
-
-    </div><!-- /.gc-filters -->
-
-    <!-- ── PRODUCT GRID ── -->
-    <div class="gc-grid" id="gcGrid" role="list" aria-label="Manufacturing portfolio"></div>
-
-    <!-- ── EMPTY STATE ── -->
-    <div class="gc-empty" id="gcEmpty" hidden aria-live="polite">
-      <div class="gc-empty-icon">
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="29" cy="29" r="20" stroke="rgba(212,175,55,0.25)" stroke-width="2"/><path d="M43 43L55 55" stroke="rgba(212,175,55,0.4)" stroke-width="2.5" stroke-linecap="round"/><path d="M22 29h14M29 22v14" stroke="rgba(212,175,55,0.2)" stroke-width="2" stroke-linecap="round"/></svg>
-      </div>
-      <h3>No Products Found</h3>
-      <p>We couldn't find products matching your current filters. Try adjusting your selection or clear all filters to browse the full catalog.</p>
-      <button class="gc-empty-btn" id="gcEmptyReset">Reset All Filters</button>
+      <!-- Level 1 -->
+      <div class="gx-level1" id="galleryLevel1" role="tablist" aria-label="Filter by segment"></div>
+      <!-- Level 2 (revealed for Men / Women / Kids) -->
+      <div class="gx-level2" id="galleryLevel2" role="tablist" aria-label="Filter by product type"></div>
     </div>
 
-    <!-- ── LOAD MORE ── -->
-    <div class="gc-load-more" id="gcLoadMore" hidden>
-      <button class="gc-load-more-btn" id="gcLoadMoreBtn">Load More Products</button>
+    <!-- ── Product Grid ── -->
+    <div class="gx-grid" id="galleryGrid" role="list" aria-label="Manufacturing portfolio"></div>
+
+    <!-- ── Empty State ── -->
+    <div class="gx-empty" id="galleryEmpty" hidden aria-live="polite">
+      <svg class="gx-empty-illus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+      <h3>No products found</h3>
+      <p>We couldn't find any styles matching this selection. Reset the filters to browse the full manufacturing portfolio.</p>
+      <button id="emptyResetBtn">Reset Filters</button>
     </div>
 
-  </div><!-- /.container -->
-</section><!-- /#gallery -->
+    <!-- ── Load More ── -->
+    <div class="gx-view-more" id="galleryViewMore">
+      <button id="viewMoreBtn">Load More Styles</button>
+    </div>
 
-<!-- ================================================================
-     GALLERY CTA BANNER
-================================================================ -->
-<section class="gc-cta-section">
-  <div class="container">
-    <div class="gc-cta-inner">
-      <div class="gc-cta-text">
-        <div class="tag">Custom Manufacturing</div>
+    <!-- ── Bottom CTA ── -->
+    <div class="gx-cta reveal">
+      <div class="gx-cta-text">
+        <span class="gx-cta-eyebrow">Custom Manufacturing</span>
         <h3>Need a Custom Design?</h3>
-        <p>From concept to bulk production, Stitchronix manufactures garments according to your exact specifications — OEM, ODM, and Private Label available.</p>
+        <p>From concept to bulk production, Stitchronix manufactures garments according to your exact specifications — fabric, fit, colourways, branding and packaging.</p>
       </div>
-      <a href="#contact" class="gc-cta-btn">Request a Quote →</a>
+      <div class="gx-cta-actions">
+        <a href="#contact" class="gx-cta-btn gx-cta-btn--gold">
+          Request a Quote
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#services" class="gx-cta-btn gx-cta-btn--ghost">Our Capabilities</a>
+      </div>
     </div>
+
   </div>
 </section>
+
 
 <!-- ================================================================
      PRODUCT QUICK-VIEW MODAL
 ================================================================ -->
-<div class="gcm-overlay" id="gcModal" role="dialog" aria-modal="true" aria-label="Product Details" hidden>
-  <div class="gcm-backdrop" id="gcModalBackdrop"></div>
+<div class="gx-modal-overlay" id="productModalOverlay" role="dialog" aria-modal="true" aria-label="Product details">
+  <button class="gx-modal-nav gx-modal-nav--prev" id="modalPrev" aria-label="Previous product">&lsaquo;</button>
 
-  <!-- Prev/Next navigation outside panel -->
-  <button class="gcm-nav gcm-nav--prev" id="gcModalPrev" aria-label="Previous Product">&#8249;</button>
-
-  <div class="gcm-panel" id="gcModalPanel">
-
-    <!-- Modal Header -->
-    <div class="gcm-header">
-      <div class="gcm-header-meta">
-        <span class="gcm-badge-type" id="gcmMfgType">OEM / ODM</span>
-        <span class="gcm-header-title">Product Details</span>
-      </div>
-      <button class="gcm-close" id="gcModalClose" aria-label="Close modal">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  <div class="gx-modal" id="productModal">
+    <!-- Image -->
+    <div class="gx-modal-media">
+      <span class="gx-modal-counter" id="modalCounter">1 / 1</span>
+      <img id="modalImg" src="" alt="" />
+      <button class="gx-modal-zoom" id="modalZoomBtn" aria-label="Open fullscreen zoom">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        Zoom
       </button>
     </div>
 
-    <!-- Modal Body: 50/50 split on desktop -->
-    <div class="gcm-body">
+    <!-- Body -->
+    <div class="gx-modal-body">
+      <button class="gx-modal-close" id="modalClose" aria-label="Close details">&#10005;</button>
 
-      <!-- Left: Image -->
-      <div class="gcm-img-col">
-        <div class="gcm-img-wrap">
-          <img id="gcmImg" src="" alt="" loading="eager" />
-          <button class="gcm-fullscreen-btn" id="gcmFullscreenBtn" aria-label="View fullscreen">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-          </button>
-          <div class="gcm-img-badge" id="gcmBadge" hidden></div>
-        </div>
-        <!-- Color swatches under image -->
-        <div class="gcm-color-row" id="gcmColors"></div>
-        <!-- Size chips under colors -->
-        <div class="gcm-size-row" id="gcmSizes"></div>
+      <div>
+        <span class="gx-modal-eyebrow" id="modalEyebrow"></span>
+        <h2 class="gx-modal-name" id="modalName"></h2>
+        <p class="gx-modal-desc" id="modalDesc"></p>
       </div>
 
-      <!-- Right: Content -->
-      <div class="gcm-content-col">
+      <div class="gx-modal-capsrow" id="modalCaps"></div>
 
-        <div class="gcm-product-top">
-          <span class="gcm-cat-label" id="gcmCatLabel"></span>
-          <h2 class="gcm-product-name" id="gcmProductName"></h2>
-          <p class="gcm-product-desc" id="gcmProductDesc"></p>
-        </div>
+      <div>
+        <div class="gx-modal-sec-title">Specifications</div>
+        <div class="gx-specs" id="modalSpecs"></div>
+      </div>
 
-        <!-- Key Specs -->
-        <div class="gcm-section">
-          <div class="gcm-section-title">Specifications</div>
-          <div class="gcm-spec-grid">
-            <div class="gcm-spec-item">
-              <span class="gcm-spec-label">Fabric</span>
-              <span class="gcm-spec-val" id="gcmFabric">—</span>
-            </div>
-            <div class="gcm-spec-item">
-              <span class="gcm-spec-label">Weight</span>
-              <span class="gcm-spec-val" id="gcmGSM">—</span>
-            </div>
-            <div class="gcm-spec-item">
-              <span class="gcm-spec-label">Min. Order</span>
-              <span class="gcm-spec-val" id="gcmMOQ">—</span>
-            </div>
-            <div class="gcm-spec-item">
-              <span class="gcm-spec-label">Lead Time</span>
-              <span class="gcm-spec-val" id="gcmLeadTime">—</span>
-            </div>
-            <div class="gcm-spec-item">
-              <span class="gcm-spec-label">Manufacturing</span>
-              <span class="gcm-spec-val" id="gcmMfg">—</span>
-            </div>
-            <div class="gcm-spec-item">
-              <span class="gcm-spec-label">Export Markets</span>
-              <span class="gcm-spec-val" id="gcmExport">—</span>
-            </div>
+      <div>
+        <div class="gx-modal-sec-title">Available Colours</div>
+        <div class="gx-colors" id="modalColors"></div>
+      </div>
+
+      <div>
+        <div class="gx-modal-sec-title">Available Sizes</div>
+        <div class="gx-sizes" id="modalSizes"></div>
+      </div>
+
+      <div>
+        <div class="gx-modal-sec-title">Customization</div>
+        <div class="gx-custom-grid">
+          <div class="gx-custom-group">
+            <span class="gx-custom-label">Printing</span>
+            <div class="gx-tags" id="modalPrinting"></div>
+          </div>
+          <div class="gx-custom-group">
+            <span class="gx-custom-label">Embroidery</span>
+            <div class="gx-tags" id="modalEmbroidery"></div>
+          </div>
+          <div class="gx-custom-group">
+            <span class="gx-custom-label">Labels</span>
+            <div class="gx-tags" id="modalLabels"></div>
+          </div>
+          <div class="gx-custom-group">
+            <span class="gx-custom-label">Packaging</span>
+            <div class="gx-tags" id="modalPackaging"></div>
           </div>
         </div>
-
-        <!-- Customization -->
-        <div class="gcm-section">
-          <div class="gcm-section-title">Customization Options</div>
-          <div class="gcm-custom-grid">
-            <div class="gcm-custom-item">
-              <div class="gcm-custom-icon">🖨️</div>
-              <div class="gcm-custom-body">
-                <div class="gcm-custom-label">Printing</div>
-                <div class="gcm-custom-tags" id="gcmPrinting"></div>
-              </div>
-            </div>
-            <div class="gcm-custom-item">
-              <div class="gcm-custom-icon">🪡</div>
-              <div class="gcm-custom-body">
-                <div class="gcm-custom-label">Embroidery</div>
-                <div class="gcm-custom-tags" id="gcmEmbroidery"></div>
-              </div>
-            </div>
-            <div class="gcm-custom-item">
-              <div class="gcm-custom-icon">🏷️</div>
-              <div class="gcm-custom-body">
-                <div class="gcm-custom-label">Labels &amp; Tags</div>
-                <div class="gcm-custom-tags" id="gcmLabels"></div>
-              </div>
-            </div>
-            <div class="gcm-custom-item">
-              <div class="gcm-custom-icon">📦</div>
-              <div class="gcm-custom-body">
-                <div class="gcm-custom-label">Packaging</div>
-                <div class="gcm-custom-tags" id="gcmPackaging"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Export Badges -->
-        <div class="gcm-export-badges">
-          <span class="gcm-export-badge">✔ Export Ready</span>
-          <span class="gcm-export-badge">✔ Pantone Matching</span>
-          <span class="gcm-export-badge">✔ Sample Available</span>
-        </div>
-
-      </div><!-- /.gcm-content-col -->
-    </div><!-- /.gcm-body -->
-
-    <!-- Modal Footer -->
-    <div class="gcm-footer">
-      <button class="gcm-btn gcm-btn--secondary" id="gcmLightboxBtn">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-        View Full Image
-      </button>
-      <button class="gcm-btn gcm-btn--primary" id="gcmQuoteBtn">Request Quote →</button>
+      </div>
     </div>
 
-  </div><!-- /.gcm-panel -->
+    <!-- Footer -->
+    <div class="gx-modal-footer">
+      <button class="gx-btn gx-btn--gold" id="modalQuoteBtn" style="flex:1;">Request Quote for This Product</button>
+    </div>
+  </div>
 
-  <button class="gcm-nav gcm-nav--next" id="gcModalNext" aria-label="Next Product">&#8250;</button>
-</div><!-- /.gcm-overlay -->
+  <button class="gx-modal-nav gx-modal-nav--next" id="modalNext" aria-label="Next product">&rsaquo;</button>
+</div>
+
 
 <!-- ================================================================
-     PREMIUM LIGHTBOX
+     FULLSCREEN LIGHTBOX / ZOOM VIEWER
 ================================================================ -->
-<div class="gc-lightbox" id="gcLightbox" role="dialog" aria-modal="true" aria-label="Full Screen Image Viewer" hidden>
-  <div class="gclb-toolbar">
-    <div class="gclb-info">
-      <span class="gclb-name" id="gclbName"></span>
-      <span class="gclb-counter" id="gclbCounter">1 / 1</span>
+<div class="gx-lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Product image viewer">
+  <div class="gx-lb-bar">
+    <div class="gx-lb-title">
+      <span class="gx-lb-name" id="lbName">Product</span>
+      <span class="gx-lb-counter" id="lbCounter">1 / 1</span>
     </div>
-    <div class="gclb-controls">
-      <button class="gclb-btn" id="gclbZoomOut" aria-label="Zoom Out" title="Zoom Out (-)">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+    <div class="gx-lb-controls">
+      <button class="gx-lb-btn" id="lbZoomOut" aria-label="Zoom out" title="Zoom out (−)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
       </button>
-      <button class="gclb-btn" id="gclbFit" aria-label="Fit Screen">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+      <button class="gx-lb-btn" id="lbFit" aria-label="Fit to screen" title="Fit to screen (0)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
       </button>
-      <button class="gclb-btn" id="gclbZoomIn" aria-label="Zoom In" title="Zoom In (+)">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+      <button class="gx-lb-btn" id="lbZoomIn" aria-label="Zoom in" title="Zoom in (+)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
       </button>
-      <button class="gclb-btn gclb-btn--close" id="gclbClose" aria-label="Close">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      <button class="gx-lb-btn gx-lb-btn--close" id="lbClose" aria-label="Close viewer" title="Close (Esc)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
-  <div class="gclb-stage">
-    <div class="gclb-img-wrap">
-      <img id="gclbImg" src="" alt="Product" draggable="false" />
-    </div>
-    <button class="gclb-nav gclb-nav--prev" id="gclbPrev" aria-label="Previous">&#8249;</button>
-    <button class="gclb-nav gclb-nav--next" id="gclbNext" aria-label="Next">&#8250;</button>
   </div>
-  <div class="gclb-thumbs" id="gclbThumbs" role="list" aria-label="Thumbnails"></div>
-</div><!-- /.gc-lightbox -->
+
+  <div class="gx-lb-stage" id="lbStage">
+    <img id="lightboxImg" src="" alt="Product" draggable="false" />
+    <button class="gx-lb-arrow gx-lb-arrow--prev" id="lbPrev" aria-label="Previous image">&#8249;</button>
+    <button class="gx-lb-arrow gx-lb-arrow--next" id="lbNext" aria-label="Next image">&#8250;</button>
+  </div>
+
+  <span class="gx-lb-hint">Scroll or pinch to zoom · double-click to reset · ← → to navigate</span>
+</div>
 
 <script src="gallery.js"></script>
+
+
+
+
 
 <!-- ================================================================
      CONTACT / QUOTE
