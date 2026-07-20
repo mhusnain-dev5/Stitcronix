@@ -774,16 +774,10 @@
       </div>
     </div>
 
-    <!-- ── Two-Level Filter Bar ── -->
-    <div class="gx-filters reveal">
-      <div class="gx-filters-head">
-        <span class="gx-filters-label">Filter Catalog</span>
-        <span class="gx-results" id="resultsCount" aria-live="polite"><strong>0</strong> Styles</span>
-      </div>
-      <!-- Level 1 -->
-      <div class="gx-level1" id="galleryLevel1" role="tablist" aria-label="Filter by segment"></div>
-      <!-- Level 2 (revealed for Men / Women / Kids) -->
-      <div class="gx-level2" id="galleryLevel2" role="tablist" aria-label="Filter by product type"></div>
+    <!-- ── Category Filter Bar ── -->
+    <div class="gx-filterbar reveal">
+      <div class="gx-filters-row" id="galleryFilters" role="tablist" aria-label="Filter by product category"></div>
+      <span class="gx-results" id="resultsCount" aria-live="polite"><strong>0</strong> products</span>
     </div>
 
     <!-- ── Product Grid ── -->
@@ -889,10 +883,11 @@
 <div class="gx-lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Product image viewer">
   <div class="gx-lb-bar">
     <div class="gx-lb-title">
+      <span class="gx-lb-cat" id="lbCat">Category</span>
       <span class="gx-lb-name" id="lbName">Product</span>
-      <span class="gx-lb-counter" id="lbCounter">1 / 1</span>
     </div>
     <div class="gx-lb-controls">
+      <span class="gx-lb-counter" id="lbCounter">1 / 1</span>
       <button class="gx-lb-btn" id="lbZoomOut" aria-label="Zoom out" title="Zoom out (−)">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
       </button>
@@ -901,6 +896,9 @@
       </button>
       <button class="gx-lb-btn" id="lbZoomIn" aria-label="Zoom in" title="Zoom in (+)">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+      </button>
+      <button class="gx-lb-btn" id="lbFullscreen" aria-label="Toggle fullscreen" title="Fullscreen (F)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
       </button>
       <button class="gx-lb-btn gx-lb-btn--close" id="lbClose" aria-label="Close viewer" title="Close (Esc)">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -914,7 +912,10 @@
     <button class="gx-lb-arrow gx-lb-arrow--next" id="lbNext" aria-label="Next image">&#8250;</button>
   </div>
 
-  <span class="gx-lb-hint">Scroll or pinch to zoom · double-click to reset · ← → to navigate</span>
+  <div class="gx-lb-caption">
+    <p class="gx-lb-desc" id="lbDesc"></p>
+    <span class="gx-lb-hint">Scroll / pinch to zoom · double-click to reset · ← → to navigate</span>
+  </div>
 </div>
 
 <script src="gallery.js"></script>
