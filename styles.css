@@ -638,7 +638,7 @@ p {
   border-bottom: 1px solid var(--border);
   padding: 88px 0;
 }
-/* Premium logo wall — no bordered cards, hairline separators */
+/* Premium logo wall  no bordered cards, hairline separators */
 .logo-wall {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -780,7 +780,7 @@ p {
 }
 .pill:hover { background: rgba(212, 175, 55, 0.08); border-color: var(--gold); color: var(--gold); }
 
-/* About — three capability cards (replaces stat boxes) */
+/* About  three capability cards (replaces stat boxes) */
 .about-cards {
   display: flex;
   flex-direction: column;

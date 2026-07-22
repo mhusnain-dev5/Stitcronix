@@ -1,5 +1,5 @@
 /* ============================================================
-   STITCHRONIX — MANUFACTURING PORTFOLIO
+   STITCHRONIX  MANUFACTURING PORTFOLIO
    Capability-based apparel catalog (flat category filter)
    ------------------------------------------------------------
    Products are matched to the actual garment in each image.
@@ -15,14 +15,14 @@
   /* Full product-category list (order preserved).
      Any category with zero products is hidden automatically. */
   const CATEGORY_ORDER = [
-    { slug: 'hoodies',      label: 'Hoodies' },
-    { slug: 'sweatshirts',  label: 'Sweatshirts' },
-    { slug: 'knitwear',     label: 'Knitwear' },
-    { slug: 'tshirts',      label: 'T-Shirts' },
-    { slug: 'polo',         label: 'Polo Shirts' },
-    { slug: 'shorts',       label: 'Shorts' },
-    { slug: 'trousers',     label: 'Trousers' },
-    { slug: 'tracksuits',   label: 'Tracksuits' },
+    { slug: 'hoodies', label: 'Hoodies' },
+    { slug: 'sweatshirts', label: 'Sweatshirts' },
+    { slug: 'knitwear', label: 'Knitwear' },
+    { slug: 'tshirts', label: 'T-Shirts' },
+    { slug: 'polo', label: 'Polo Shirts' },
+    { slug: 'shorts', label: 'Shorts' },
+    { slug: 'trousers', label: 'Trousers' },
+    { slug: 'tracksuits', label: 'Tracksuits' },
     { slug: 'privatelabel', label: 'Private Label' },
   ];
   /* Singular badge label per slug */
@@ -33,7 +33,7 @@
   };
 
   /* ────────────────────────────────────────────────────────────
-     PRODUCTS — each matched to the real garment in its image
+     PRODUCTS  each matched to the real garment in its image
   ──────────────────────────────────────────────────────────── */
   const PRODUCTS = [
     {
@@ -386,6 +386,132 @@
       labelOptions: labelPack, packagingOptions: ['Poly Bag', 'Carton Pack'],
       leadTime: '3–4 Weeks', exportCountries: 'USA · UK · Australia',
     },
+    {
+      id: 26, name: 'Performance Athletic Tracksuit', cats: ['tracksuits', 'privatelabel'], image: 'https://res.cloudinary.com/fuh0ucvy/image/upload/v1784711521/WhatsApp_Image_2026-07-11_at_17.22.22_awwrko.jpg',
+      fabric: '300 GSM Performance Interlock', gsm: 300,
+      specs: ['300 GSM Interlock Fabric', 'Full-Zip Jacket & Joggers', 'Ribbed Cuffs & Waistband', 'Zippered Side Pockets'],
+      colors: ['#18181b', '#3f3f46', '#e4e4e7'],
+      colorNames: ['Charcoal Black', 'Slate', 'Off-White'],
+      sizes: ['S', 'M', 'L', 'XL', 'XXL'], moq: 100,
+      manufacturingType: 'OEM · ODM · Private Label', isNew: true, isBestseller: false,
+      description: 'High-performance athletic tracksuit set engineered for active movement and custom sportswear lines.',
+      printingOptions: ['Screen Print', 'Reflective Logo'],
+      embroideryOptions: ['Chest Crest', 'Thigh Monogram'],
+      labelOptions: labelPack, packagingOptions: ['Poly Bag'],
+      leadTime: '3–4 Weeks', exportCountries: 'USA · UK · Germany · UAE',
+    },
+    {
+      id: 27, name: 'Pro-Fit Zip-Up Tracksuit', cats: ['tracksuits'], image: 'https://res.cloudinary.com/fuh0ucvy/image/upload/v1784711516/WhatsApp_Image_2026-07-11_at_17.21.53_ezpyzo.jpg',
+      fabric: '320 GSM Cotton-Poly Heavy Fleece', gsm: 320,
+      specs: ['320 GSM Brushed Back Fleece', 'Stand Collar Zip Top', 'Tapered Joggers with Drawcord', 'Double Stitching'],
+      colors: ['#0f172a', '#334155', '#cbd5e1'],
+      colorNames: ['Navy Blue', 'Steel Blue', 'Heather Grey'],
+      sizes: ['S', 'M', 'L', 'XL', 'XXL'], moq: 100,
+      manufacturingType: 'OEM · ODM', isNew: true, isBestseller: false,
+      description: 'Premium brushed-fleece tracksuit tailored for teamwear, active lifestyle, and modern streetwear brands.',
+      printingOptions: ['Discharge Print', 'High-Density Print'],
+      embroideryOptions: ['Sleeve Embroidery', 'Leg Logo'],
+      labelOptions: labelPack, packagingOptions: ['Poly Bag'],
+      leadTime: '3–4 Weeks', exportCountries: 'USA · UK · Canada',
+    },
+    {
+      id: 28, name: 'Urban Streetwear Tracksuit Set', cats: ['tracksuits', 'privatelabel'], image: 'https://res.cloudinary.com/fuh0ucvy/image/upload/v1784711511/WhatsApp_Image_2026-07-11_at_17.21.27_r64gzt.jpg',
+      fabric: '340 GSM Heavy French Terry', gsm: 340,
+      specs: ['340 GSM Loopback Terry', 'Oversized Silhouette', 'Custom Piping Details', 'Elasticized Waist & Ankle Ribs'],
+      colors: ['#1c1917', '#44403c', '#d6d3d1'],
+      colorNames: ['Pitch Black', 'Espresso', 'Stone'],
+      sizes: ['S', 'M', 'L', 'XL', 'XXL'], moq: 100,
+      manufacturingType: 'OEM · ODM · Private Label', isNew: true, isBestseller: true,
+      description: 'Streetwear-inspired heavyweight French Terry tracksuit set crafted with custom contrast piping and a relaxed cut.',
+      printingOptions: ['Puff Print', 'Silicone Print'],
+      embroideryOptions: ['Center Chest Patch', 'Back Neck Monogram'],
+      labelOptions: labelPack, packagingOptions: ['Poly Bag', 'Custom Box'],
+      leadTime: '4 Weeks', exportCountries: 'USA · UK · France · UAE',
+    },
+    {
+      id: 29, name: 'Active Training Tracksuit', cats: ['tracksuits'], image: 'https://res.cloudinary.com/fuh0ucvy/image/upload/v1784711609/WhatsApp_Image_2026-07-11_at_17.25.32_rznyac.jpg',
+      fabric: '290 GSM Moisture-Wicking Poly Blend', gsm: 290,
+      specs: ['290 GSM Breathable Knit', 'Raglan Sleeve Jacket', 'Streamlined Jogger Fit', 'Reflective Accents'],
+      colors: ['#172554', '#1e293b', '#94a3b8'],
+      colorNames: ['Midnight Blue', 'Dark Charcoal', 'Light Grey'],
+      sizes: ['S', 'M', 'L', 'XL', 'XXL'], moq: 100,
+      manufacturingType: 'OEM · Private Label', isNew: true, isBestseller: false,
+      description: 'Engineered for gym training and outdoor sports. Features lightweight moisture management and flexible side panels.',
+      printingOptions: ['Sublimation Details', 'Reflective Transfer'],
+      embroideryOptions: ['Left Chest Logo'],
+      labelOptions: labelPack, packagingOptions: ['Poly Bag'],
+      leadTime: '3 Weeks', exportCountries: 'USA · Germany · Australia',
+    },
+    {
+      id: 30, name: 'Luxury Fleece Tracksuit', cats: ['tracksuits', 'privatelabel'], image: 'https://res.cloudinary.com/fuh0ucvy/image/upload/v1784711614/WhatsApp_Image_2026-07-11_at_17.25.14_k28nkh.jpg',
+      fabric: '360 GSM Soft Plush Cotton Fleece', gsm: 360,
+      specs: ['360 GSM Ultra-Soft Fleece', 'Pullover Top & Heavy Jogger', 'Deep Pockets with Bartacks', 'Custom Hardware'],
+      colors: ['#27272a', '#71717a', '#f4f4f5'],
+      colorNames: ['Onyx Black', 'Cool Grey', 'Cream White'],
+      sizes: ['S', 'M', 'L', 'XL', 'XXL'], moq: 100,
+      manufacturingType: 'OEM · ODM · Private Label', isNew: true, isBestseller: false,
+      description: 'An elevated luxury lounge and streetwear tracksuit constructed from 360 GSM ultra-soft plush cotton fleece.',
+      printingOptions: ['Screen Print', 'DTG Print'],
+      embroideryOptions: ['3D Puff Embroidery'],
+      labelOptions: labelPack, packagingOptions: ['Poly Bag', 'Custom Box'],
+      leadTime: '4 Weeks', exportCountries: 'USA · UK · Netherlands · Sweden',
+    },
+    {
+      id: 31, name: 'Modern Tailored Twill Trousers', cats: ['trousers', 'privatelabel'], image: 'https://res.cloudinary.com/fuh0ucvy/image/upload/v1784711686/WhatsApp_Image_2026-07-11_at_17.17.50_kiyn0n.jpg',
+      fabric: '270 GSM Combed Cotton Twill', gsm: 270,
+      specs: ['270 GSM Stretch Cotton Twill', 'Slim Tapered Cut', 'Hidden Zipper Pocket', 'Reinforced Belt Loops'],
+      colors: ['#09090b', '#3f3f46', '#a1a1aa'],
+      colorNames: ['Jet Black', 'Graphite', 'Fog Grey'],
+      sizes: ['28', '30', '32', '34', '36', '38'], moq: 150,
+      manufacturingType: 'OEM · ODM · Private Label', isNew: true, isBestseller: false,
+      description: 'Smart casual twill trousers featuring a modern tapered silhouette and high-tensile strength stitching.',
+      printingOptions: ['None'],
+      embroideryOptions: ['Back Pocket Monogram'],
+      labelOptions: labelPack, packagingOptions: ['Poly Bag', 'Hanger Pack'],
+      leadTime: '4–5 Weeks', exportCountries: 'USA · UK · Germany',
+    },
+    {
+      id: 32, name: 'Heavyweight Oversized Streetwear Tee', cats: ['tshirts', 'privatelabel'], image: 'https://res.cloudinary.com/fuh0ucvy/image/upload/v1784711818/WhatsApp_Image_2026-07-11_at_17.23.45_eed9u2.jpg',
+      fabric: '250 GSM Heavy Combed Cotton Jersey', gsm: 250,
+      specs: ['250 GSM Heavy Jersey', 'Drop Shoulder Fit', 'Thick 1.25" Ribbed Collar', 'Pre-Shrunk Fabric'],
+      colors: ['#18181b', '#e4e4e7', '#71717a'],
+      colorNames: ['Obsidian Black', 'Chalk White', 'Washed Grey'],
+      sizes: ['S', 'M', 'L', 'XL', 'XXL'], moq: 100,
+      manufacturingType: 'OEM · ODM · Private Label', isNew: true, isBestseller: true,
+      description: 'Ultra-heavy 250 GSM combed jersey t-shirt with a boxy streetwear drape and durable collar ribbing.',
+      printingOptions: ['Screen Print', 'Puff Print', 'DTF Print'],
+      embroideryOptions: ['Chest Embroidery', 'Sleeve Badge'],
+      labelOptions: labelPack, packagingOptions: ['Poly Bag'],
+      leadTime: '3 Weeks', exportCountries: 'USA · UK · UAE · Canada',
+    },
+    {
+      id: 33, name: 'Heavy French Terry Sweat Shorts', cats: ['shorts', 'privatelabel'], image: 'https://res.cloudinary.com/fuh0ucvy/image/upload/v1784711867/WhatsApp_Image_2026-07-11_at_17.27.25_wes9q9.jpg',
+      fabric: '320 GSM Premium French Terry', gsm: 320,
+      specs: ['320 GSM 100% Cotton Terry', 'Heavy Elastic Waistband with Aglets', 'Deep Side Pockets', 'Clean Double Hem'],
+      colors: ['#18181b', '#52525b', '#d4d4d8'],
+      colorNames: ['Black', 'Charcoal', 'Melange Grey'],
+      sizes: ['S', 'M', 'L', 'XL', 'XXL'], moq: 100,
+      manufacturingType: 'OEM · ODM · Private Label', isNew: true, isBestseller: false,
+      description: 'Structured 320 GSM French Terry sweat shorts engineered for relaxed luxury and custom streetwear branding.',
+      printingOptions: ['Screen Print', 'High-Density Print'],
+      embroideryOptions: ['Hem Embroidery'],
+      labelOptions: labelPack, packagingOptions: ['Poly Bag'],
+      leadTime: '3 Weeks', exportCountries: 'USA · UK · Germany',
+    },
+    {
+      id: 34, name: 'Heavyweight Drop-Shoulder Hoodie', cats: ['hoodies', 'privatelabel'], image: 'https://res.cloudinary.com/fuh0ucvy/image/upload/v1784711937/WhatsApp_Image_2026-07-11_at_17.22.48_tb1te3.jpg',
+      fabric: '420 GSM Ultra-Heavy Loopback Cotton', gsm: 420,
+      specs: ['420 GSM Luxury Loopback', 'Double-Layered Structured Hood', 'Seamless Kangaroo Pocket', 'Heavyweight Ribbed Trim'],
+      colors: ['#1c1917', '#78716c', '#e7e5e4'],
+      colorNames: ['Vintage Black', 'Taupe', 'Oatmeal'],
+      sizes: ['S', 'M', 'L', 'XL', 'XXL'], moq: 100,
+      manufacturingType: 'OEM · ODM · Private Label', isNew: true, isBestseller: true,
+      description: 'Our heaviest 420 GSM loopback cotton hoodie, featuring a structured drop-shoulder cut designed for high-end streetwear labels.',
+      printingOptions: ['Screen Print', 'Discharge Print', 'Puff Print'],
+      embroideryOptions: ['Center Chest Monogram', 'Hood Rim Logo'],
+      labelOptions: labelPack, packagingOptions: ['Poly Bag', 'Custom Gift Box'],
+      leadTime: '4 Weeks', exportCountries: 'USA · UK · France · Japan · UAE',
+    },
   ];
 
   /* Capability flags for each product */
@@ -407,21 +533,21 @@
 
   /* Two Independent Filter Groups */
   const CATEGORY_FILTERS = [
-    { slug: 'all',         label: 'All' },
-    { slug: 'hoodies',     label: 'Hoodies' },
+    { slug: 'all', label: 'All' },
+    { slug: 'hoodies', label: 'Hoodies' },
     { slug: 'sweatshirts', label: 'Sweatshirts' },
-    { slug: 'knitwear',    label: 'Knitwear' },
-    { slug: 'tshirts',     label: 'T-Shirts' },
-    { slug: 'polo',        label: 'Polo Shirts' },
-    { slug: 'shorts',      label: 'Shorts' },
-    { slug: 'trousers',    label: 'Trousers' },
-    { slug: 'tracksuits',  label: 'Tracksuits' }
+    { slug: 'knitwear', label: 'Knitwear' },
+    { slug: 'tshirts', label: 'T-Shirts' },
+    { slug: 'polo', label: 'Polo Shirts' },
+    { slug: 'shorts', label: 'Shorts' },
+    { slug: 'trousers', label: 'Trousers' },
+    { slug: 'tracksuits', label: 'Tracksuits' }
   ];
 
   const TYPE_FILTERS = [
-    { slug: 'all',          label: 'All' },
-    { slug: 'oem',          label: 'OEM' },
-    { slug: 'odm',          label: 'ODM' },
+    { slug: 'all', label: 'All' },
+    { slug: 'oem', label: 'OEM' },
+    { slug: 'odm', label: 'ODM' },
     { slug: 'privatelabel', label: 'Private Label' }
   ];
 
@@ -444,38 +570,38 @@
 
   const $ = id => document.getElementById(id);
 
-  const searchInput   = $('gallerySearch');
-  const searchClear   = $('searchClearBtn');
-  const categoryRow   = $('categoryFilters');
-  const typeRow       = $('typeFilters');
-  const clearBtn      = $('clearFiltersBtn');
-  const grid          = $('galleryGrid');
-  const emptyState    = $('galleryEmpty');
-  const emptyReset    = $('emptyResetBtn');
-  const countEl       = $('resultsCount');
-  const viewMoreWrap  = $('galleryViewMore');
-  const viewMoreBtn   = $('viewMoreBtn');
+  const searchInput = $('gallerySearch');
+  const searchClear = $('searchClearBtn');
+  const categoryRow = $('categoryFilters');
+  const typeRow = $('typeFilters');
+  const clearBtn = $('clearFiltersBtn');
+  const grid = $('galleryGrid');
+  const emptyState = $('galleryEmpty');
+  const emptyReset = $('emptyResetBtn');
+  const countEl = $('resultsCount');
+  const viewMoreWrap = $('galleryViewMore');
+  const viewMoreBtn = $('viewMoreBtn');
 
   const modalOverlay = $('productModalOverlay');
-  const modalPanel   = $('productModal');
-  const modalClose   = $('modalClose');
-  const modalPrev    = $('modalPrev');
-  const modalNext    = $('modalNext');
+  const modalPanel = $('productModal');
+  const modalClose = $('modalClose');
+  const modalPrev = $('modalPrev');
+  const modalNext = $('modalNext');
 
-  const lb          = $('galleryLightbox');
-  const lbImg       = $('lightboxImg');
-  const lbStage     = $('lbStage');
-  const lbCounter   = $('lbCounter');
-  const lbName      = $('lbName');
-  const lbCat       = $('lbCat');
-  const lbDesc      = $('lbDesc');
-  const lbPrev      = $('lbPrev');
-  const lbNext      = $('lbNext');
-  const lbClose     = $('lbClose');
-  const lbZoomIn    = $('lbZoomIn');
-  const lbZoomOut   = $('lbZoomOut');
-  const lbFit       = $('lbFit');
-  const lbFullscreen= $('lbFullscreen');
+  const lb = $('galleryLightbox');
+  const lbImg = $('lightboxImg');
+  const lbStage = $('lbStage');
+  const lbCounter = $('lbCounter');
+  const lbName = $('lbName');
+  const lbCat = $('lbCat');
+  const lbDesc = $('lbDesc');
+  const lbPrev = $('lbPrev');
+  const lbNext = $('lbNext');
+  const lbClose = $('lbClose');
+  const lbZoomIn = $('lbZoomIn');
+  const lbZoomOut = $('lbZoomOut');
+  const lbFit = $('lbFit');
+  const lbFullscreen = $('lbFullscreen');
 
   /* ────────────────────────────────────────────────────────────
      FILTERING & SEARCH
@@ -663,8 +789,8 @@
     const badge = p.isNew
       ? '<span class="gx-badge gx-badge--new">New Style</span>'
       : p.isBestseller
-      ? '<span class="gx-badge gx-badge--best">Bestseller</span>'
-      : '';
+        ? '<span class="gx-badge gx-badge--best">Bestseller</span>'
+        : '';
 
     const oemTags = p.productionTypes.map(t => {
       const label = t === 'privatelabel' ? 'Private Label' : t.toUpperCase();
@@ -677,7 +803,7 @@
         <div class="gx-skeleton"></div>
         ${badge}
         <div class="gx-card-gsm-tag">${p.gsm} GSM</div>
-        <img src="${p.image}" alt="${p.name} — ${p.badge} manufactured by Stitchronix"
+        <img src="${p.image}" alt="${p.name}  ${p.badge} manufactured by Stitchronix"
              loading="lazy" decoding="async" width="600" height="750" />
         <div class="gx-card-hover" aria-hidden="true">
           <span class="gx-view-image">
@@ -758,7 +884,7 @@
   }
   function populateModal(p) {
     $('modalImg').src = p.image;
-    $('modalImg').alt = `${p.name} — ${p.badge}`;
+    $('modalImg').alt = `${p.name}  ${p.badge}`;
     $('modalEyebrow').textContent = p.badge;
     $('modalName').textContent = p.name;
     $('modalDesc').textContent = p.description;
@@ -771,18 +897,18 @@
     caps.push('Export Ready');
     $('modalCaps').innerHTML = caps.map(c => `<span class="gx-cap gx-cap--lg">${c}</span>`).join('');
 
-    $('modalPrinting').innerHTML   = chipList(p.printingOptions, 'On request');
+    $('modalPrinting').innerHTML = chipList(p.printingOptions, 'On request');
     $('modalEmbroidery').innerHTML = chipList(p.embroideryOptions, 'Not applicable');
-    $('modalLabels').innerHTML     = chipList(p.labelOptions, 'Standard woven label');
-    $('modalPackaging').innerHTML  = chipList(p.packagingOptions, 'Poly bag');
+    $('modalLabels').innerHTML = chipList(p.labelOptions, 'Standard woven label');
+    $('modalPackaging').innerHTML = chipList(p.packagingOptions, 'Poly bag');
 
     $('modalZoomBtn').onclick = () => { const idx = state.filtered.findIndex(x => x.id === p.id); closeModal(); openLightbox(idx >= 0 ? idx : 0); };
     $('modalQuoteBtn').onclick = () => { closeModal(); scrollToQuote(p.name); };
   }
 
   if (modalClose) modalClose.addEventListener('click', closeModal);
-  if (modalPrev)  modalPrev.addEventListener('click', () => navModal(-1));
-  if (modalNext)  modalNext.addEventListener('click', () => navModal(1));
+  if (modalPrev) modalPrev.addEventListener('click', () => navModal(-1));
+  if (modalNext) modalNext.addEventListener('click', () => navModal(1));
   if (modalOverlay) modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
 
   /* ────────────────────────────────────────────────────────────
@@ -800,7 +926,7 @@
   }
   function closeLightbox() {
     if (!lb) return;
-    if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+    if (document.fullscreenElement) document.exitFullscreen().catch(() => { });
     lb.classList.remove('active');
     document.body.style.overflow = '';
     if (lastFocused) lastFocused.focus();
@@ -835,16 +961,16 @@
 
   function toggleFullscreen() {
     if (!lb) return;
-    if (!document.fullscreenElement) lb.requestFullscreen && lb.requestFullscreen().catch(() => {});
-    else document.exitFullscreen().catch(() => {});
+    if (!document.fullscreenElement) lb.requestFullscreen && lb.requestFullscreen().catch(() => { });
+    else document.exitFullscreen().catch(() => { });
   }
 
-  if (lbPrev)  lbPrev.addEventListener('click', () => navLightbox(-1));
-  if (lbNext)  lbNext.addEventListener('click', () => navLightbox(1));
+  if (lbPrev) lbPrev.addEventListener('click', () => navLightbox(-1));
+  if (lbNext) lbNext.addEventListener('click', () => navLightbox(1));
   if (lbClose) lbClose.addEventListener('click', closeLightbox);
-  if (lbZoomIn)  lbZoomIn.addEventListener('click', () => setZoom(state.zoom + 0.5));
+  if (lbZoomIn) lbZoomIn.addEventListener('click', () => setZoom(state.zoom + 0.5));
   if (lbZoomOut) lbZoomOut.addEventListener('click', () => setZoom(state.zoom - 0.5));
-  if (lbFit)     lbFit.addEventListener('click', () => setZoom(1));
+  if (lbFit) lbFit.addEventListener('click', () => setZoom(1));
   if (lbFullscreen) lbFullscreen.addEventListener('click', toggleFullscreen);
   if (lb) lb.addEventListener('click', (e) => { if (e.target === lb || e.target === lbStage) closeLightbox(); });
 
@@ -909,7 +1035,7 @@
   document.addEventListener('keydown', (e) => {
     if (lb && lb.classList.contains('active')) {
       if (e.key === 'Escape') closeLightbox();
-      else if (e.key === 'ArrowLeft')  navLightbox(-1);
+      else if (e.key === 'ArrowLeft') navLightbox(-1);
       else if (e.key === 'ArrowRight') navLightbox(1);
       else if (e.key === '+' || e.key === '=') setZoom(state.zoom + 0.5);
       else if (e.key === '-') setZoom(state.zoom - 0.5);
@@ -919,7 +1045,7 @@
     }
     if (modalOverlay && modalOverlay.classList.contains('active')) {
       if (e.key === 'Escape') closeModal();
-      else if (e.key === 'ArrowLeft')  navModal(-1);
+      else if (e.key === 'ArrowLeft') navModal(-1);
       else if (e.key === 'ArrowRight') navModal(1);
     }
   });
