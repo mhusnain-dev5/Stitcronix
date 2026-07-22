@@ -1232,9 +1232,19 @@
 
 /* 2 columns on mobile */
 @media (max-width: 640px) {
+  .gx-section, .gx-filterbar, .gx-grid, .gx-cta {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
   .gx-filterbar {
-    margin: 2rem 0;
+    margin: 1.5rem 0;
     border-radius: 14px;
+    width: 100%;
+    overflow: hidden;
+  }
+  .gx-search-wrap {
+    flex: 1 1 100%;
+    max-width: 100%;
   }
   .gx-filter-topbar {
     padding: 0.9rem 1rem;
