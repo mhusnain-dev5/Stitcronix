@@ -778,10 +778,48 @@
       </div>
     </div>
 
-    <!-- ── Category Filter Bar ── -->
+    <!-- ── B2B Manufacturing Catalog Controls ── -->
     <div class="gx-filterbar reveal">
-      <div class="gx-filters-row" id="galleryFilters" role="tablist" aria-label="Filter by product category"></div>
-      <span class="gx-results" id="resultsCount" aria-live="polite"><strong>0</strong> products</span>
+      
+      <!-- Top Control Bar: Search & Status -->
+      <div class="gx-filter-topbar">
+        <div class="gx-search-wrap">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="gx-search-icon"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="gallerySearch" class="gx-search-input" placeholder="Search by fabric, GSM, style name..." aria-label="Search catalog products" />
+          <button id="searchClearBtn" class="gx-search-clear" hidden aria-label="Clear search">&times;</button>
+        </div>
+
+        <div class="gx-filter-status">
+          <span class="gx-results" id="resultsCount" aria-live="polite">Showing <strong>25</strong> Products</span>
+          <button id="clearFiltersBtn" class="gx-clear-btn" hidden title="Reset all filters">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            Reset Filters
+          </button>
+        </div>
+      </div>
+
+      <!-- Filter Group 1: Product Category -->
+      <div class="gx-filter-group">
+        <div class="gx-filter-header">
+          <span class="gx-filter-title">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+            Product Category
+          </span>
+        </div>
+        <div class="gx-filters-row gx-scroll-x" id="categoryFilters" role="tablist" aria-label="Filter by product category"></div>
+      </div>
+
+      <!-- Filter Group 2: Production Type -->
+      <div class="gx-filter-group">
+        <div class="gx-filter-header">
+          <span class="gx-filter-title">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Production Type
+          </span>
+        </div>
+        <div class="gx-filters-row" id="typeFilters" role="tablist" aria-label="Filter by production type"></div>
+      </div>
+
     </div>
 
     <!-- ── Product Grid ── -->
@@ -833,20 +871,7 @@
 
       <div class="gx-modal-capsrow" id="modalCaps"></div>
 
-      <div>
-        <div class="gx-modal-sec-title">Specifications</div>
-        <div class="gx-specs" id="modalSpecs"></div>
-      </div>
 
-      <div>
-        <div class="gx-modal-sec-title">Available Colours</div>
-        <div class="gx-colors" id="modalColors"></div>
-      </div>
-
-      <div>
-        <div class="gx-modal-sec-title">Available Sizes</div>
-        <div class="gx-sizes" id="modalSizes"></div>
-      </div>
 
       <div>
         <div class="gx-modal-sec-title">Customization</div>
@@ -1196,7 +1221,7 @@
     </div>
 
     <div class="footer-bottom container">
-      <p>&copy; 2025 <span>Stitchronix Apparel</span>. All rights reserved. Lahore, Punjab, Pakistan.</p>
+      <p>&copy; 2026 <span>Stitchronix Apparel</span>. All rights reserved.</p>
       <div class="footer-compliance">
         <span class="compliance-tag">ISO 9001</span>
         <span class="compliance-tag">Oeko-Tex</span>

@@ -390,34 +390,71 @@
 
   /* Capability flags for each product */
   PRODUCTS.forEach(p => {
-    const mt = p.manufacturingType.toLowerCase();
-    p.oem = mt.includes('oem');
-    p.odm = mt.includes('odm');
-    p.privateLabel = mt.includes('private label');
-    p.badge = BADGE[p.cats[0]] || p.cats[0];
+    p.category = p.category || p.cats[0];
+    if (!p.productionTypes) {
+      const mt = (p.manufacturingType || '').toLowerCase();
+      p.productionTypes = [];
+      if (mt.includes('oem')) p.productionTypes.push('oem');
+      if (mt.includes('odm')) p.productionTypes.push('odm');
+      if (mt.includes('private label') || p.cats.includes('privatelabel')) p.productionTypes.push('privatelabel');
+      if (p.productionTypes.length === 0) p.productionTypes = ['oem', 'odm', 'privatelabel'];
+    }
+    p.oem = p.productionTypes.includes('oem');
+    p.odm = p.productionTypes.includes('odm');
+    p.privateLabel = p.productionTypes.includes('privatelabel');
+    p.badge = BADGE[p.category] || p.category;
   });
 
-  /* Only show filters for categories that actually have products */
-  const CATEGORIES = [{ slug: 'all', label: 'All Products' }].concat(
-    CATEGORY_ORDER.filter(c => PRODUCTS.some(p => p.cats.includes(c.slug)))
-  );
+  /* Two Independent Filter Groups */
+  const CATEGORY_FILTERS = [
+    { slug: 'all',         label: 'All' },
+    { slug: 'hoodies',     label: 'Hoodies' },
+    { slug: 'sweatshirts', label: 'Sweatshirts' },
+    { slug: 'knitwear',    label: 'Knitwear' },
+    { slug: 'tshirts',     label: 'T-Shirts' },
+    { slug: 'polo',        label: 'Polo Shirts' },
+    { slug: 'shorts',      label: 'Shorts' },
+    { slug: 'trousers',    label: 'Trousers' },
+    { slug: 'tracksuits',  label: 'Tracksuits' }
+  ];
+
+  const TYPE_FILTERS = [
+    { slug: 'all',          label: 'All' },
+    { slug: 'oem',          label: 'OEM' },
+    { slug: 'odm',          label: 'ODM' },
+    { slug: 'privatelabel', label: 'Private Label' }
+  ];
 
   /* ────────────────────────────────────────────────────────────
      STATE
   ──────────────────────────────────────────────────────────── */
-  const state = { category: 'all', filtered: [], modalIndex: 0, lbIndex: 0, zoom: 1, panX: 0, panY: 0 };
+  const state = {
+    category: 'all',
+    productionType: 'all',
+    searchQuery: '',
+    filtered: [],
+    modalIndex: 0,
+    lbIndex: 0,
+    zoom: 1,
+    panX: 0,
+    panY: 0
+  };
   const PAGE_SIZE = 12;
   let shownCount = PAGE_SIZE;
 
   const $ = id => document.getElementById(id);
 
-  const filtersRow  = $('galleryFilters');
-  const grid        = $('galleryGrid');
-  const emptyState  = $('galleryEmpty');
-  const emptyReset  = $('emptyResetBtn');
-  const countEl     = $('resultsCount');
-  const viewMoreWrap= $('galleryViewMore');
-  const viewMoreBtn = $('viewMoreBtn');
+  const searchInput   = $('gallerySearch');
+  const searchClear   = $('searchClearBtn');
+  const categoryRow   = $('categoryFilters');
+  const typeRow       = $('typeFilters');
+  const clearBtn      = $('clearFiltersBtn');
+  const grid          = $('galleryGrid');
+  const emptyState    = $('galleryEmpty');
+  const emptyReset    = $('emptyResetBtn');
+  const countEl       = $('resultsCount');
+  const viewMoreWrap  = $('galleryViewMore');
+  const viewMoreBtn   = $('viewMoreBtn');
 
   const modalOverlay = $('productModalOverlay');
   const modalPanel   = $('productModal');
@@ -441,42 +478,149 @@
   const lbFullscreen= $('lbFullscreen');
 
   /* ────────────────────────────────────────────────────────────
-     FILTERING
+     FILTERING & SEARCH
   ──────────────────────────────────────────────────────────── */
   function getFiltered() {
-    if (state.category === 'all') return PRODUCTS.slice();
-    return PRODUCTS.filter(p => p.cats.includes(state.category));
+    const q = (state.searchQuery || '').trim().toLowerCase();
+    return PRODUCTS.filter(p => {
+      const matchCat = state.category === 'all' || p.category === state.category || p.cats.includes(state.category);
+      const matchType = state.productionType === 'all' || p.productionTypes.includes(state.productionType);
+      let matchQuery = true;
+      if (q) {
+        const haystack = `${p.name} ${p.fabric} ${p.gsm} GSM ${p.description} ${p.specs.join(' ')} ${p.manufacturingType}`.toLowerCase();
+        matchQuery = haystack.includes(q);
+      }
+      return matchCat && matchType && matchQuery;
+    });
   }
-  function countFor(slug) {
-    return slug === 'all' ? PRODUCTS.length : PRODUCTS.filter(p => p.cats.includes(slug)).length;
+
+  function countForCategory(slug) {
+    const q = (state.searchQuery || '').trim().toLowerCase();
+    return PRODUCTS.filter(p => {
+      const matchCat = slug === 'all' || p.category === slug || p.cats.includes(slug);
+      const matchType = state.productionType === 'all' || p.productionTypes.includes(state.productionType);
+      let matchQuery = true;
+      if (q) {
+        const haystack = `${p.name} ${p.fabric} ${p.gsm} GSM ${p.description} ${p.specs.join(' ')} ${p.manufacturingType}`.toLowerCase();
+        matchQuery = haystack.includes(q);
+      }
+      return matchCat && matchType && matchQuery;
+    }).length;
+  }
+
+  function countForType(slug) {
+    const q = (state.searchQuery || '').trim().toLowerCase();
+    return PRODUCTS.filter(p => {
+      const matchCat = state.category === 'all' || p.category === state.category || p.cats.includes(state.category);
+      const matchType = slug === 'all' || p.productionTypes.includes(slug);
+      let matchQuery = true;
+      if (q) {
+        const haystack = `${p.name} ${p.fabric} ${p.gsm} GSM ${p.description} ${p.specs.join(' ')} ${p.manufacturingType}`.toLowerCase();
+        matchQuery = haystack.includes(q);
+      }
+      return matchCat && matchType && matchQuery;
+    }).length;
   }
 
   /* ────────────────────────────────────────────────────────────
-     FILTER BAR
+     FILTER BARS RENDERING
   ──────────────────────────────────────────────────────────── */
   function renderFilters() {
-    filtersRow.innerHTML = '';
-    CATEGORIES.forEach(c => {
-      const btn = document.createElement('button');
-      btn.className = 'gx-filter' + (state.category === c.slug ? ' active' : '');
-      btn.dataset.slug = c.slug;
-      btn.setAttribute('role', 'tab');
-      btn.setAttribute('aria-selected', state.category === c.slug ? 'true' : 'false');
-      btn.innerHTML = `${c.label}<span class="gx-filter-count">${countFor(c.slug)}</span>`;
-      btn.addEventListener('click', () => selectCategory(c.slug));
-      filtersRow.appendChild(btn);
-    });
+    // 1. Category Group
+    if (categoryRow) {
+      categoryRow.innerHTML = '';
+      CATEGORY_FILTERS.forEach(c => {
+        const count = countForCategory(c.slug);
+        const btn = document.createElement('button');
+        btn.className = 'gx-filter' + (state.category === c.slug ? ' active' : '');
+        if (count === 0 && state.category !== c.slug) btn.classList.add('gx-filter--disabled');
+        btn.dataset.slug = c.slug;
+        btn.setAttribute('role', 'tab');
+        btn.setAttribute('aria-selected', state.category === c.slug ? 'true' : 'false');
+        btn.innerHTML = `${c.label}<span class="gx-filter-count">${count}</span>`;
+        btn.addEventListener('click', () => selectCategory(c.slug));
+        categoryRow.appendChild(btn);
+      });
+    }
+
+    // 2. Production Type Group
+    if (typeRow) {
+      typeRow.innerHTML = '';
+      TYPE_FILTERS.forEach(t => {
+        const count = countForType(t.slug);
+        const btn = document.createElement('button');
+        btn.className = 'gx-filter' + (state.productionType === t.slug ? ' active' : '');
+        if (count === 0 && state.productionType !== t.slug) btn.classList.add('gx-filter--disabled');
+        btn.dataset.slug = t.slug;
+        btn.setAttribute('role', 'tab');
+        btn.setAttribute('aria-selected', state.productionType === t.slug ? 'true' : 'false');
+        btn.innerHTML = `${t.label}<span class="gx-filter-count">${count}</span>`;
+        btn.addEventListener('click', () => selectProductionType(t.slug));
+        typeRow.appendChild(btn);
+      });
+    }
+
+    // Clear/Reset Button
+    if (clearBtn) {
+      const isFiltered = state.category !== 'all' || state.productionType !== 'all' || Boolean(state.searchQuery);
+      if (isFiltered) clearBtn.removeAttribute('hidden');
+      else clearBtn.setAttribute('hidden', '');
+    }
+
+    // Search clear icon
+    if (searchClear) {
+      if (state.searchQuery) searchClear.removeAttribute('hidden');
+      else searchClear.setAttribute('hidden', '');
+    }
   }
+
   function selectCategory(slug) {
     if (state.category === slug) return;
     state.category = slug;
     shownCount = PAGE_SIZE;
-    filtersRow.querySelectorAll('.gx-filter').forEach(b => {
-      const on = b.dataset.slug === slug;
-      b.classList.toggle('active', on);
-      b.setAttribute('aria-selected', on ? 'true' : 'false');
+    applyFilterAnimation();
+  }
+
+  function selectProductionType(slug) {
+    if (state.productionType === slug) return;
+    state.productionType = slug;
+    shownCount = PAGE_SIZE;
+    applyFilterAnimation();
+  }
+
+  function resetAllFilters() {
+    state.category = 'all';
+    state.productionType = 'all';
+    state.searchQuery = '';
+    if (searchInput) searchInput.value = '';
+    shownCount = PAGE_SIZE;
+    applyFilterAnimation();
+  }
+
+  function applyFilterAnimation() {
+    renderFilters();
+    if (grid) grid.classList.add('gx-grid--filtering');
+    setTimeout(() => {
+      renderGallery();
+      if (grid) grid.classList.remove('gx-grid--filtering');
+    }, 140);
+  }
+
+  // Search input listeners
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      state.searchQuery = e.target.value;
+      shownCount = PAGE_SIZE;
+      applyFilterAnimation();
     });
-    renderGallery();
+  }
+  if (searchClear) {
+    searchClear.addEventListener('click', () => {
+      state.searchQuery = '';
+      if (searchInput) searchInput.value = '';
+      shownCount = PAGE_SIZE;
+      applyFilterAnimation();
+    });
   }
 
   /* ────────────────────────────────────────────────────────────
@@ -487,7 +631,10 @@
     state.filtered = filtered;
     const visible = filtered.slice(0, shownCount);
 
-    if (countEl) countEl.innerHTML = `<strong>${filtered.length}</strong> ${filtered.length === 1 ? 'product' : 'products'}`;
+    if (countEl) {
+      const total = filtered.length;
+      countEl.innerHTML = `Showing <strong>${total}</strong> ${total === 1 ? 'Product' : 'Products'}`;
+    }
 
     grid.innerHTML = '';
     if (filtered.length === 0) {
@@ -511,43 +658,51 @@
   function createCard(p, index) {
     const card = document.createElement('article');
     card.className = 'gx-card';
-    card.style.setProperty('--d', `${Math.min(index, 11) * 45}ms`);
+    card.style.setProperty('--d', `${Math.min(index, 11) * 40}ms`);
 
     const badge = p.isNew
-      ? '<span class="gx-badge gx-badge--new">New</span>'
+      ? '<span class="gx-badge gx-badge--new">New Style</span>'
       : p.isBestseller
       ? '<span class="gx-badge gx-badge--best">Bestseller</span>'
       : '';
 
-    const oem = [];
-    if (p.oem) oem.push('OEM');
-    if (p.odm) oem.push('ODM');
-    if (p.privateLabel) oem.push('Private Label');
+    const oemTags = p.productionTypes.map(t => {
+      const label = t === 'privatelabel' ? 'Private Label' : t.toUpperCase();
+      return `<span class="gx-tag-pill gx-tag-pill--${t}">${label}</span>`;
+    }).join('');
 
     card.innerHTML = `
       <div class="gx-card-media" data-act="lightbox" data-id="${p.id}" role="button" tabindex="0"
            aria-label="View image of ${p.name}">
         <div class="gx-skeleton"></div>
         ${badge}
+        <div class="gx-card-gsm-tag">${p.gsm} GSM</div>
         <img src="${p.image}" alt="${p.name} — ${p.badge} manufactured by Stitchronix"
              loading="lazy" decoding="async" width="600" height="750" />
         <div class="gx-card-hover" aria-hidden="true">
           <span class="gx-view-image">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-            View Image
+            Inspect Garment
           </span>
-          <button class="gx-quick-view" data-act="modal" data-id="${p.id}">Quick View</button>
+          <button class="gx-quick-view" data-act="modal" data-id="${p.id}">View Specifications</button>
         </div>
       </div>
       <div class="gx-card-body">
-        <span class="gx-card-badge">${p.badge}</span>
-        <h3 class="gx-card-name">${p.name}</h3>
-        <ul class="gx-card-specs">
-          ${p.specs.slice(0, 3).map(s => `<li>${s}</li>`).join('')}
-        </ul>
-        <div class="gx-card-oem">
-          ${oem.map(o => `<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>${o}</span>`).join('')}
+        <div class="gx-card-meta-top">
+          <span class="gx-card-category">${p.badge}</span>
+          <span class="gx-card-moq">MOQ: ${p.moq} pcs</span>
         </div>
+        <h3 class="gx-card-name">${p.name}</h3>
+        <p class="gx-card-fabric">${p.fabric}</p>
+        
+        <div class="gx-card-tags">
+          ${oemTags}
+        </div>
+
+        <button class="gx-card-quote-btn" data-act="modal" data-id="${p.id}">
+          <span>Request Bulk Quote</span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
       </div>
     `;
 
@@ -609,41 +764,12 @@
     $('modalDesc').textContent = p.description;
     $('modalCounter').textContent = `${state.modalIndex + 1} / ${state.filtered.length}`;
 
-    $('modalSpecs').innerHTML = [
-      ['Fabric', p.fabric],
-      ['Weight', `${p.gsm} GSM`],
-      ['MOQ', `${p.moq} pcs`],
-      ['Lead Time', p.leadTime],
-      ['Manufacturing', p.manufacturingType],
-      ['Export Markets', p.exportCountries],
-    ].map(([k, v]) => `<div class="gx-spec"><span class="gx-spec-k">${k}</span><span class="gx-spec-v">${v}</span></div>`).join('');
-
     const caps = [];
     if (p.oem) caps.push('OEM');
     if (p.odm) caps.push('ODM');
     if (p.privateLabel) caps.push('Private Label');
     caps.push('Export Ready');
     $('modalCaps').innerHTML = caps.map(c => `<span class="gx-cap gx-cap--lg">${c}</span>`).join('');
-
-    const colorsEl = $('modalColors');
-    colorsEl.innerHTML = p.colors.map((c, i) =>
-      `<button class="gx-color${i === 0 ? ' selected' : ''}" style="background:${c}" title="${p.colorNames[i]}" aria-label="${p.colorNames[i]}" data-name="${p.colorNames[i]}"></button>`
-    ).join('') + `<span class="gx-color-name" id="modalColorName">${p.colorNames[0]}</span>`;
-    colorsEl.querySelectorAll('.gx-color').forEach(sw => {
-      sw.addEventListener('click', () => {
-        colorsEl.querySelectorAll('.gx-color').forEach(s => s.classList.remove('selected'));
-        sw.classList.add('selected');
-        $('modalColorName').textContent = sw.dataset.name;
-      });
-    });
-
-    $('modalSizes').innerHTML = p.sizes.map((s, i) => `<button class="gx-size${i === 0 ? ' active' : ''}">${s}</button>`).join('');
-    $('modalSizes').querySelectorAll('.gx-size').forEach(chip => {
-      chip.addEventListener('click', () => {
-        $('modalSizes').querySelectorAll('.gx-size').forEach(c => c.classList.remove('active'));
-        chip.classList.add('active');
-      });
-    });
 
     $('modalPrinting').innerHTML   = chipList(p.printingOptions, 'On request');
     $('modalEmbroidery').innerHTML = chipList(p.embroideryOptions, 'Not applicable');
@@ -809,7 +935,8 @@
     if (cards[before]) cards[before].querySelector('.gx-card-media').focus();
   });
 
-  if (emptyReset) emptyReset.addEventListener('click', () => selectCategory('all'));
+  if (emptyReset) emptyReset.addEventListener('click', resetAllFilters);
+  if (clearBtn) clearBtn.addEventListener('click', resetAllFilters);
 
   function scrollToQuote(productName) {
     const contact = document.getElementById('contact');
