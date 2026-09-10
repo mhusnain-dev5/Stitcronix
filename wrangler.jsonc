@@ -4,5 +4,9 @@
   "compatibility_date": "2026-09-10",
   "assets": {
     "directory": "."
-  }
+  },
+  "routes": [
+    { "pattern": "stitchronixapparel.com",     "custom_domain": true },
+    { "pattern": "www.stitchronixapparel.com", "custom_domain": true }
+  ]
 }
