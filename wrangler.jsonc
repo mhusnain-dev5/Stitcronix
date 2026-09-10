@@ -2,11 +2,8 @@
         "$schema": "./node_modules/wrangler/config-schema.json",
         "name": "stitcronix",
         "compatibility_date": "2026-09-10",
+        "workers_dev": true,
         "assets": {
           "directory": "."
-        },
-        "routes": [
-          { "pattern": "stitchronixapparel.com", "custom_domain": true },
-          { "pattern": "www.stitchronixapparel.com", "custom_domain": true }
-        ]
+        }
       }
